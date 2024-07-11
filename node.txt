@@ -1,6 +1,7 @@
 Node.js
 
 single-threaded app is actually leveraging the multi-threaded behavior of another process: the database;
+ref : https://stackoverflow.com/a/34857298/25472984
 
 What is Node.js and its features{
     NodeJS is a JavaScript environment which uses a single thread to handle all the requests. All the requests are handled asynchronously, meaning the client side never needs to wait for data when requested. It also means it is non-blocking; if a request is being processed in the CPU, the I/O operations are not blocked.

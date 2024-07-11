@@ -1,4 +1,7 @@
 overview of how event loop, worker thread, child process and cluster module work together in a Node.js application.
+single-threaded app is actually leveraging the multi-threaded behavior of another process: the database;
+
+ref : https://stackoverflow.com/a/34857298/25472984
 
 Event Loop: At the core of Node.js is the event loop, which handles asynchronous operations like I/O tasks (e.g., reading files, network requests). -
 The event loop allows Node.js to perform non-blocking I/O operations, meaning it can handle multiple operations without waiting for any to complete before moving to the next.
