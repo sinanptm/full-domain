@@ -1,0 +1,274 @@
+JavaScript Basics
+
+Const, Let, Var difference{
+     const: Block-scoped, immutable reference (for primitives, and can't reassign reference for objects)
+     let: Block-scoped, mutable reference
+     var: Function-scoped or globally scoped, hoisted to the top of the function or global scope
+}
+Shallow copy vs deep copy{
+     Shallow Copy:
+     Creates a new object/array, but nested objects/arrays are shared between the original and the copy.
+     Modifying the nested array in shallowCopyArray affects the originalArray
+    let shallowCopyArray = [...originalArray];
+
+     Deep Copy:
+     Creates a completely new object/array with all nested objects/arrays also copied.
+     Modifying the nested array in deepCopyArray does not affect the originalArray
+    let deepCopyArray = JSON.parse(JSON.stringify(originalArray));
+}
+Hoisting{
+     Variables and function declarations are hoisted to the top of their scope during compilation phase.
+     var declarations are hoisted entirely, while let and const are hoisted but not initialized.
+}
+Arrow function vs regular function (this) {
+    this refferse to the execution contest of an object
+    arrow function do not have their own this context, instead they inherit from the sarounding context
+        in normal function this refers to the object that called the function 
+}
+Spread operator and rest parameters{
+    Rest: multiple elements into a single array.
+        Spread : an iterable(like an array, string, or object literal) into its individual elements.
+}
+Closure{
+    a Closure is a function that has access to its own scope and the scope of the outer functions  and the global scope.Closure are created whenewher a function are created inside another function it will allow inner function to accees the outer function elements such as variables params even after the fininshing the execution of outer function.
+}
+Event loop{
+    Manages the execution of code in a non - blocking way.
+    Handles events like user interactions, timers, and network requests.
+    Ensures smooth and responsive user interfaces.
+         1. Synchronous Code: Executes immediately in the call stack
+         2. Microtasks: Executes immediately after synchronous code, before any macrotasks
+        microtasks: [
+            'Promise callbacks',
+            'API calls',
+            'process.nextTick',
+            'await expressions'
+        ],
+         3. Macrotasks: Executes after microtasks are processed
+        macrotasks: [
+            'setTimeout',
+            'setInterval',
+            'DOM manipulations',
+            'I/O operations',
+            'Network requests',
+            'Event handlers'
+        ]
+}
+Promises, async / await, and the difference{
+    A promise represents the eventual completion(or failure) of an asynchronous operation
+    async / await is syntactic sugar built on top of promises.It allows writing asynchronous code in a synchronous - like manner, making it easier to read and maintain.
+}
+Event bubbling and capturing{
+    event bubbling: is the phase in which an event start from the triggered element and propogate to the ancestors.
+    event capturing: is the phase in which an event start from outermost element and propogates down to the target element
+}
+Higher - order functions(HOF) examples[
+    HOF are functions that either takes functions as arg or return functions as result.
+        eg: arr.map((a) => a * 2); , 
+]
+Pure functions{
+    for the same input a pure function will always return the same output.
+    pure function does not modify variables outside of its scope
+    don't perform any observable actions (such as modifying a file or printing to the console).
+}
+Prototypal inheritance{
+    Prototypal inheritance allows objects to inherit properties and methods from other objects through the prototype chain.
+    Each object in JavaScript has a prototype object, which it inherits properties and methods from.    
+}
+Call, Apply, Bind{
+    Use call() or apply() when you want to borrow a function and use it with different data(context) right now.
+    Use bind() when you want to create a new version of a function that is permanently tied to specific data(context) for later use.
+    
+    - call : Calls a function with a specified this value and individual arguments.
+    const person = {
+        fullName: function () {
+            return this.firstName + " " + this.lastName;
+        }
+    };
+
+    const person1 = {
+        firstName: "John",
+        lastName: "Doe"
+    };
+
+    const fullName1 = person.fullName.call(person1);  Returns "John Doe"
+
+    -apply : Calls a function with a specified this value and arguments provided as an array.
+    const numbers = [5, 6, 2, 3, 7];
+    const max = Math.max.apply(null, numbers);  Returns 7
+
+    -bind : Creates a new function, when called, that has its this keyword set to a specific value(thisArg), with a given sequence of arguments preceding any provided when the new function is called.
+    const module = {
+        x: 42,
+        getX: function () {
+            return this.x;
+        }
+    };
+    const ss = { x: 2323 }
+    const unboundGetX = module.getX;
+    const boundGetX = unboundGetX.bind(ss);
+}
+Error handling{
+    .Try - Catch Blocks:
+    try {
+
+    } catch (error) {
+
+    } finally {
+
+    }
+    .  Throwing Errors:
+    throw new Error(error message);
+    . Asynchronous Error Handling:
+    promise()
+        .then()
+        .catch(err)
+};
+IIFE(Immediately Invoked Function Expression){
+    Avoiding Global Scope Pollution
+    Encapsulation
+    Immediately Invoked:
+
+    (function () {
+         Code here runs immediately
+    })();
+    this functions will invoke immediately
+}
+Function composition{
+    this is a way to combine multiple function to create one function
+    const add = x => y => x + y;
+    const multiply = x => y => x * y;
+    const addThenMultiply = x => y => multiply(add(x)(y))(2);
+    const result = addThenMultiply(3)(4);  (3 + 4) * 2 = 14
+}
+Typeof and instanceOf {
+    typeof operator is used to get the type of a variable or expression.It returns a string indicating the type of the unevaluated operand.
+        console.log(typeof 42);           "number"
+
+    The instanceof operator is used to check whether an object is an instance of a specific class or constructor function
+    
+    function Person(name) {
+        this.name = name;
+    }
+    const person1 = new Person('Alice');
+    console.log(person1 instanceof Person);   true
+    console.log(person1 instanceof Object);   true 
+}
+Object and array methods(map, filter, reduce, forEach){
+    map: A new array with each element being the result of the callback function.
+    filter: A new array with elements that pass the test.
+        reduce : The single value that results from the reduction.
+            forEach : will execute a function for each element, not to produce a return value.it will manipulate the arr.
+
+                Object.keys() : return array of strings of keys in object.
+                    Object.values() : An array of the values of the object's own properties.
+    console.log(Object.entries(person););  Output: [["name", "Alice"], ["age", 25], ["city", "New York"]];
+}
+Temporal Dead Zone(TDZ){
+    The TDZ refers to the period between entering scope and the actual declaration of a variable using let or const.
+}
+Implicit and explicit type casting{
+    Implicit type casting occurs automatically when values are converted between different data types without explicit instructions from the programmer
+    eg  const str = "The number is: " + 32;
+const result = "10" * 2;  20
+    explicit type casting occurs when the programmer manually converts a value from one data type to another using built-in functions
+const num = Number('123');
+}
+Static vs dynamically typed languages{
+    static typed:  in java, c, c++ and all variable declarations are explicit like int num = 0; 
+    dynamically typed: JavaScript, Python, Ruby: allows variables to hold values of any type and determines the data type during runtime.
+}
+Scope(global, local, block){
+    global: variables or functions declared outside function and block
+    local: Variables or functions declared within a function have local scope
+    block:  block scope refers to variables declared within curly braces { }
+}
+Closures and lexical scope{
+    Lexical scope: means that the scope of a variable is determined by its position within the code.
+        closure : is the combination of a function bundled together(enclosed) with references to its surrounding state(the lexical environment).
+}
+Debouncing and throttling{
+    techniques used to control the rate at which a function is executed
+    Debouncing: Executes the function after a specified delay time has elapsed since the last event
+    Throttling: Executes the function at most once every specified interval.
+}
+Event delegation{
+     By attaching a single event listener to a common ancestor of all the elements you want to handle events for, you can manage events for multiple elements through this one listener.
+}
+Modules(import/export){
+    Modules in JavaScript provide a way to organize and reuse code by splitting it into separate files
+}
+Asynchronous JavaScript(callbacks, promises, async / await){
+    Callbacks: A function passed as an argument to another function, to be executed after the first function completes.
+    Promises: An object representing the eventual completion or failure of an asynchronous operation.
+        async / await : Syntactic sugar on top of promises, making asynchronous code look and behave like synchronous code.
+}
+JavaScript Engine and runtime{
+    JavaScript engine is a program or interpreter that executes JavaScript code.eg: V8, spiderMonkey
+        The JavaScript engine is responsible for parsing, compiling, and executing JavaScript code.
+    JavaScript runtime provides the environment in which JavaScript code executes, including the engine and additional APIs provided by the host environment(browser or Node.js).  
+    runtime will have: 
+        js engine, webApi(setTimeout, fetch...), node.js api's (fs,http...), event loop(a queue of callback functions waiting to be executed ),
+        microTask queue(a list of resolved promises), 
+}
+Memory management(garbage collection){
+    Memory management: The process of allocating, using, and freeing memory in a program.
+        allocation : Memory is allocated for variables, objects, and functions when they are created.
+            Usage : The allocated memory is used to store data and execute code.
+                De-allocation : Memory that is no longer needed is released back to the system.
+    Garbage Collection(GC) : Automatic process of finding and reclaiming memory that is no longer in use by the program.
+        Mark: The garbage collector starts from root objects and marks all reachable objects.
+            Sweep: The garbage collector then sweeps through memory, reclaiming unmarked(unreachable) objects.
+}
+Strict mode{
+    It helps you to write cleaner code, like preventing you from using undeclared variables.
+}
+JSON methods(parse, stringify){
+    parse() : converts a string JSON string into a js object;
+    stringify: converts a js object into a json string;
+}
+Error types(syntax error, runtime error, logical error){
+    syntax error: when code violates the rules of language
+    runtime error: Occurs while the program is running.
+    logical error: Occurs when the program runs without crashing but produces incorrect or unexpected results.
+}
+Debugging techniques{
+    console logging
+    breakPoints
+    step through code
+    Exception Handling
+    Call Stack Inspection
+    Automated Testing
+}
+Web APIs(Fetch, XMLHttpRequest){
+    XMLHttpRequest is an older API used to make HTTP requests from web browsers.
+    Fetch is a modern API for making HTTP requests introduced as part of the window object.
+}
+Generators and iterators{
+    Iterators are objects that provide a way to access elements sequentially from a collection(such as an array) or from a custom data structure.
+    Generators are functions that can be paused and resumed, yielding multiple values over time.
+}
+memoization {
+    invloves caching the results of expensive function calls and reusing result when same input accuers
+}
+window{
+    it provide access to access to the browser apis : dom, fetch, local storage
+    its a js object that represents the global context in web browser.
+    also provide methods and properties such as alert setTimeout location.
+}
+Micro Tasks Execution:{
+    The event loop processes the micro task queue before the macro task queue.
+    "Micro Task: Promise" is logged because the Promise .then callback is executed.
+    Promises (.then and .catch handlers)
+    MutationObserver
+    process.nextTick (Node.js)
+}
+Macro Tasks Execution:{
+    The event loop then processes the macro task queue.
+    "Macro Task: setTimeout" is logged because the setTimeout callback is executed.
+    setTimeout
+    setInterval
+    setImmediate (Node.js)
+    I/O operations (like file read/write)
+    UI rendering tasks (in browser)
+}

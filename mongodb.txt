@@ -1,0 +1,262 @@
+cap_theorem: {
+    CAP Theorem: In a distributed database, only two out of three properties can be guaranteed: consistency, availability, partition tolerance.
+    consistency: {
+        All clients see the same data regardless of which node they connect to.
+    },
+    availability: {
+        Every request receives a non-error response, but the response may not be the most recent data.
+    },
+    partition_tolerance: {
+        The system continues to operate even if there are breaks in communication between nodes due to network or node failures.
+    }
+}
+Transactions guarantee ACID properties, which are crucial for many applications.
+transactions: {
+    atomicity: {
+        All or nothing; ensures that all operations in a transaction are completed or none are.
+    },
+    consistency: {
+        Ensures that the data is consistent before and after the transaction.
+    },
+    isolation: {
+        Ensures that operations in a transaction are isolated from operations in other transactions.
+    },
+    durability: {
+        Ensures that once a transaction is committed, its effects are permanently recorded in the database.
+    }
+}
+clustering{
+    deployment of multiple MongoDB instances together to provide high availability and fault tolerance.
+    involves setting up replica sets to ensure data replications, high availability and failover capavilities.
+}
+
+Sharding and Replication
+Sharding: Provides horizontal scaling by distributing data across multiple shards.
+sharding: {
+    Manages large amounts of data by dividing it into smaller, more manageable pieces.
+    according to the shard key on the collections it stored data accross multiple servers so it will also make operations faster
+}
+replication: {
+    Ensures redundancy and high availability by copying data across multiple servers.
+    high availability on a failover
+    durability/data safety
+}
+Aggregation operations process data records and return computed results.
+$lookup: {
+    Performs a left outer join with another collection in the same database.
+}
+$unwind: {
+    Deconstructs an array field from the input documents to output a document for each element of the array.
+}
+
+Upsert
+Updates the documents that match the condition; otherwise, inserts the data if no match is found.
+
+Distinct
+distinct: {
+    Returns the distinct values of a field as an array.
+}
+
+
+Backup and Restore
+Backup: Creates a backup of the database.
+mongodump --out /path/to/backup
+
+Restore: Restores the database from a backup.
+mongorestore /path/to/backup
+
+
+GridFS
+GridFS: Manages large files exceeding 16MB by breaking them into smaller chunks.
+gridfs: {
+    Stores and retrieves large files by splitting them into smaller parts.
+}
+
+
+Indexes and Their Disadvantages
+indexes: {
+    disadvantages: {
+        Increased storage requirement.
+        Slower write operations (like delete, update, insert) because indexes need to be updated.
+        Additional CPU and memory usage.
+    },
+    advantages: {
+        Faster read operations by allowing quick data retrieval.
+        Efficiently supports sorting and range queries.
+        Enhances the performance of queries that filter on indexed fields.
+        Can enforce uniqueness on a field, ensuring data integrity.
+    }
+}
+
+
+
+Capped Collections
+Capped collections are a special type of collection with a fixed size that provide high-throughput operations by maintaining insert order.
+capped_collections: {
+    Fixed size, high-throughput insert operations, maintains the order of insertion.
+}
+
+MongoDB Profiler
+The MongoDB profiler allows monitoring the performance of database operations.
+profiler: {
+    Monitors and analyzes the performance of database operations.
+}
+
+BulkWrite
+BulkWrite operations allow performing multiple write operations at once in a single call.
+bulkWrite: {
+    Executes multiple write operations in a single call for efficiency.
+}
+
+CRUD Operations
+crud_operations: {
+    create: {
+        Creates a new document in the collection.
+        db.collection.insertOne({})
+    },
+    read: {
+        Reads documents from the collection.
+        db.collection.find()
+    },
+    update: {
+        Updates documents in the collection.
+        db.collection.updateOne({}, { $set: {} })
+    },
+    delete: {
+        Deletes documents from the collection.
+        db.collection.deleteOne({})
+    }
+}
+
+Comparison Operators
+comparison_operators: {
+    $eq: { /* Equal to */ },
+    $ne: { /* Not equal to */ },
+    $gt: { /* Greater than */ },
+    $gte: { /* Greater than or equal to */ },
+    $lt: { /* Less than */ },
+    $lte: { /* Less than or equal to */ },
+    $in: { /* In array */ },
+    $nin: { /* Not in array */ }
+};
+
+Logical Operators
+logical_operators: {
+    $and: { /* Logical AND */ },
+    $or: { /* Logical OR */ },
+    $not: { /* Logical NOT */ },
+    $nor: { /* Logical NOR */ }
+}
+
+Element Operators
+element_operators: {
+    $exists: { /* Checks if a field exists */ },
+    $type: { /* Checks the type of a field */ }
+}
+
+Array Operators
+array_operators: {
+    $all: { /* Matches arrays that contain all elements */ },
+    $elemMatch: { /* Matches arrays that contain at least one element that matches all conditions */ },
+    $size: { /* Matches arrays with a specified size */ }
+}
+
+Evaluation Operators
+evaluation_operators: {
+    $mod: { /* Modulus operation */ },
+    $regex: { /* Regular expression match */ },
+    $text: { /* Text search */ },
+    $where: { /* JavaScript expression */ }
+}
+
+-$elemmatch {
+    The $elemMatch operator matches documents that contain an array field with at least one element that matches all the specified query criteria.
+    db.collection.find({
+        scores: { $elemMatch: { $gt: 80, $lt: 85 } }
+    });
+}
+-$facet {
+    The $facet stage allows you to perform multiple aggregation pipelines within a single stage, returning a document where each field contains the results of a separate pipeline.
+    db.collection.aggregate([
+        {
+            $facet: {
+                "categorizedByTags": [
+                    { $unwind: "$tags" },
+                    { $sortByCount: "$tags" }
+                ],
+                "categorizedByYear": [
+                    { $match: { year: { $gt: 2000 } } },
+                    { $bucket: { groupBy: "$year", boundaries: [2000, 2010, 2020], default: "Other" } }
+                ]
+            }
+        }
+    ]);
+}
+-$let {
+    The $let operator defines variables for use within the scope of a sub-expression and returns the result of the sub-expression.
+    db.collection.aggregate([
+        {
+            $project: {
+                total: {
+                    $let: {
+                        vars: {
+                            price: "$price",
+                            tax: "$tax"
+                        },
+                        in: { $add: ["$$price", "$$tax"] }
+                    }
+                }
+            }
+        }
+    ]);
+}
+-$cond {
+    The $cond operator evaluates a boolean expression to return one of two specified values.
+    db.collection.aggregate([
+    {
+        $project: {
+            status: {
+                $cond: { if: { $gte: ["$score", 80] }, then: "Pass", else: "Fail" }
+            }
+        }
+    }
+]);
+
+}
+
+
+db.employees.updateMany(
+  { dep: 'eng' },
+  { $mul: { salary: 1.1 } }
+);
+db.employees.updateMany(
+  { dep: 'eng' },
+  { $mul: { salary: 0.9 } }
+);
+
+
+
+$exits syntax 
+$cond
+$nin
+increment and decrement operator in mongo DB
+$pull
+$all
+Look Up
+
+
+concurrencyFind documents from the ""orders""
+collection where the ""items"" array size is greater than or equal to 3.Get avg year in the doc
+all 
+in
+elemMatch
+bulk write
+batch sizing
+auto scaling
+event emitter ,
+$all vs $in
+
+
+
+min max avg
+update

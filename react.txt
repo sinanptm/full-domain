@@ -1,0 +1,87 @@
+React 
+diffing{
+     diffing is a core mechanism in React that enables efficient updates to the DOM, contributing to the performance and maintainability of React applications.
+}
+Lifecycle methods{
+    componentDidMount,
+    componentDidUpdate, 
+    componentWillUnmount,
+}
+useMemo vs React.memo{
+    react.memo is HOC component that takes a component as a prop and returns a component that prevents a component from re-rendering if the props (or values within it) have not changed.
+    useMemo() is a React Hook we can return memoized values and avoid re-rendering if the dependencies to a function have not changed.
+}
+useCallback{
+    useCallback is a hook that returns a memoized version of the callback function that only changes if one of the dependencies has changed. 
+    const increment = useCallback(() => {
+        setCount(count + 1);
+    }, [count]);
+
+}
+Hooks rules and conditional rendering{
+🔴 Only call Hooks at the top level
+🔴 Only call Hooks from React functions
+🔴 Do not call Hooks inside conditions or loops.
+🔴 Do not call Hooks after a conditional return statement.
+🔴 Do not call Hooks in event handlers.
+🔴 Do not call Hooks in class components.
+🔴 Do not call Hooks inside functions passed to useMemo, useReducer, or useEffect.
+🔴 Do not call Hooks inside try/catch/finally blocks.
+}
+Context API vs Redux{
+    context api It's a good choice for small to medium-sized applications that don't require complex state management.
+    redux  better choice for large and complex applications that require more advanced state management features. Redux can make it easier to debug and reason about your application's state
+}
+React Router
+Lazy loading
+Error boundaries
+Synthetic events vs native events{
+    native {
+        onclick, onmouseover, onchange
+        They directly access the browser's native event object.
+        While they work across browsers, there might be slight inconsistencies in their properties and behavior.
+    }
+    Synthetic {
+        onClick, onMouseOver, onChange, etc.
+        React wraps the native browser events in its own event system, creating "Synthetic Events.
+        Cross-Browser Compatibility:
+    }
+}
+Reconciliation{
+    React's way of diffing the virtual DOM tree with the updated virtual DOM to determine the most efficient way to update the real DOM.
+}
+Higher-order components (HOCs){
+    hocs allow you to reuse component logic across multiple components. 
+}
+Suspense for data fetching{
+     Wraps a component that is waiting for some asynchronous operation. Displays a fallback UI until the operation completes.
+}
+Performance optimization{
+    Lazy loading 
+    momoization
+    useCallback
+    throttling and debouncing
+}
+Component composition{
+    Component composition refers to the practice of assembling or combining smaller, more focused components to build larger and more complex UI components.
+}
+Error handling in React{
+    For unhandled errors or unexpected errors that may occur outside error boundaries, you can use global error handling strategies, such as window.onerror or wrapping your entire application with a top-level error boundary.
+    import React from 'react';
+    import ReactDOM from 'react-dom';
+    import App from './App';
+    import ErrorBoundary from './ErrorBoundary';
+    
+    ReactDOM.render(
+        <ErrorBoundary>
+            <App />
+        </ErrorBoundary>,
+        document.getElementById('root')
+    );
+    
+}
+
+
+Redux Thunk and Redux Saga are both middleware libraries that help manage side effects and asynchronous operations in Redux applications. The main difference between the two is how they handle side effects:
+Redux Thunk: Better for simpler applications with straightforward asynchronous logic.
+Redux Saga: Better for more complex applications with advanced requirements, such as long-running transactions, multiple concurrent processes, and fine-grained control over side effects. Sagas can also make it easier to write clean and readable tests. However, they may have a steeper learning curve than Redux Thunk. 

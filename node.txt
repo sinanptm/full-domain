@@ -1,0 +1,145 @@
+Node.js
+
+single-threaded app is actually leveraging the multi-threaded behavior of another process: the database;
+
+What is Node.js and its features{
+    NodeJS is a JavaScript environment which uses a single thread to handle all the requests. All the requests are handled asynchronously, meaning the client side never needs to wait for data when requested. It also means it is non-blocking; if a request is being processed in the CPU, the I/O operations are not blocked.
+    JavaScript is a synchronous blocking single-threaded language
+    to make async programming possible we want to make use of libuv library
+    Asynchronous and Event-Driven: 
+    Single-Threaded, Non-Blocking I/O Model
+    NPM (Node Package Manager)
+    Scalability
+    fast execution
+    cross platform
+    libraries and frameworks
+}
+Event loop, libuv, and threadPool{
+    libuv
+    Cross-platform open-source library written in C.
+    Handles asynchronous and blocking operations in Node.js.
+    
+    threadPool
+    A pool of threads Node.js uses to offload time-consuming tasks, ensuring the main thread is not blocked.
+    Handles asynchronous operations using threads from the thread pool.
+    Default size is 4 threads. Can be configured via process.env.UV_THREADPOOL_SIZE, limited by available CPU cores.
+        
+    Event Loop
+    A mechanism written in C that coordinates the execution of synchronous and asynchronous code in Node.js.
+    Order of execution: 
+    1. Microtask queue (nextTick callbacks, process callbacks)
+    2. Timer queue
+    3. I/O queue
+    4. Check queue
+    5. Close queue
+    6. I/O polling
+}
+setimmidiate vs process.nextTick() {
+    process.nextTick() has higher priority and executes before setImmediate.
+    setImmediate executing in the next iteration of the event loop after I/O events. 
+}
+Child process (spawn and fork and exec){
+    allows multiple processes to run simultaneously.
+    This can be useful for tasks that are CPU-intensive, such as image processing or video encoding.
+    spawn 
+        use when need to execute a scripts, shell commands or launching application in a new process
+
+    fork 
+        for creating nodejs processes it establish a ipc cummunicaiton chanel .
+
+    exec // for shell commands
+        suitable for executing shell cammands where you need the intere result of proccess.
+}
+Cluster and worker threads{
+    Worker Threads{
+        are used to perform computations in parallel, which helps in utilizing multi-core systems effectively.
+        They are typically employed for tasks such as heavy computation, mathematical calculations, or any task that can benefit from parallel execution.
+    }
+    Cluster{
+        clusters are used for scaling applications horizontally across multiple CPU cores.
+        They are commonly used in server applications where multiple instances of the same application can handle incoming requests concurrently.
+    }
+}
+Multithreading: {
+    allows a single process to execute multiple threads concurrently.
+    This can be useful for tasks that need to be handled concurrently, such as handling multiple concurrent requests.
+    Example: A web server handling multiple incoming HTTP requests concurrently
+}
+Multiprocessing:{
+    allows multiple processes to run simultaneously.
+    This can be useful for tasks that are CPU-intensive, such as image processing or video encoding.
+    Example: Running multiple instances of a program to process different parts of a large dataset concurrently.
+}
+Difference between Worker Thread, Cluster, and Child Process{
+    Worker Threads are threads within a single Node.js process, suitable for CPU-bound tasks within a single machine.
+    Clusters are multiple instances of the entire Node.js process running separately, suitable for distributing workload across multiple cores or machines.
+    Child Processes, as discussed earlier, are independent processes spawned by a Node.js process, useful for executing external commands or running other applications.
+}
+Types of Streams{
+    Streams are a way to handle any kind of end-to-end information exchange in an efficient manner.  like reading writing networking.
+    Readable Streams: fs.createReadStream('file.txt');
+    Writable Streams: fs.createWriteStream('output.txt');
+    Duplex Streams: Streams that are both readable and writable;
+    Transform Streams: Duplex streams that can modify or transform the data as it is written and read;
+}
+Middleware types (application, router, error handling){
+    Application-level Middleware
+    Router-level Middleware
+    Error-handling Middleware
+}
+Serving static files
+HTTP vs HTTPS{
+    HTTP (HyperText Transfer Protocol): Default port 80
+    HTTPS (HyperText Transfer Protocol Secure): 443
+}
+Request and response headers{
+     Headers provide metadata about the data being transmitted and instructions on how the data should be handled.
+     req:
+        GET /index.html HTTP/1.1
+        Host: www.example.com
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+        Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+        cookies:weqwhuhkajsdjasiodhqwodwqheo
+    res:
+        HTTP/1.1 200 OK
+        Date: Wed, 07 Jul 2024 12:00:00 GMT
+        Content-Type: text/html; charset=utf-8
+        Content-Length: 1234
+        Cache-Control: max-age=3600, must-revalidate
+        Set-Cookie: sessionid=abcd1234; Secure; HttpOnly; SameSite=Strict
+        Server: Apache/2.4.41 (Unix)
+}
+Error-first callback{
+    readFileExample('example.txt', (err, data) => {
+      if (err) {
+        console.error('Error reading file:', err);
+      } else {
+        console.log('File content:', data);
+      }
+    });
+    Consistent Error Handling
+    Convention in Node.js:
+    Readable Code
+}
+Buffer class{
+    a built-in class that provides a way to work with binary data directly in memory. 
+}
+Event emitter{
+     the event emitter pattern in Node.js provides a robust way to implement asynchronous communication and handle events within applications
+}
+REPL{
+    Node.js REPL is a powerful tool for developers to interactively explore JavaScript code, experiment with language features, and debug code snippets, making it an essential part of the Node.js developer toolkit.
+}
+Non-blocking I/O{
+    Non-blocking I/O allows Node.js to handle high concurrency with a single-threaded event loop.
+    non-blocking I/O in Node.js ensures that I/O operations do not block the entire program, enabling it to handle multiple tasks concurrently and providing high performance and responsiveness.
+}
+Streams and Buffer{
+    A stream is an abstract interface for working with streaming data. It allows you to process data in chunks as it arrives, rather than waiting for the entire data set to be loaded into memory.
+    A buffer is a fixed-size chunk of memory allocated for temporarily storing binary data. They are especially useful when working with streams, as data is often read or written in chunks.
+    Streams use buffers internally to handle the chunking and processing of data.
+    When you read from a readable stream, you receive data in the form of buffers. Similarly, when you write to a writable stream, you provide data in the form of buffers or strings (which are internally converted to buffers).
+}
+corn job{
+    These are the tasks that run periodically by the operating system. Users can schedule commands the OS will run these commands automatically according to the given time.
+}

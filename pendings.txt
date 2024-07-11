@@ -1,0 +1,79 @@
+
+Other Topics
+
+Authentication vs Authorization{
+    Authentication is the process of verifying the identity of a user or entity. It's about confirming that someone is who they claim to be.
+    Authorization is the process of determining what an authenticated user is allowed to do. It's about granting or denying permissions to resources or actions.
+    Authorization can only occur after authentication.
+}
+Local storage vs Session storage{
+    Local storage and session storage are both part of the Web Storage API
+    Local Storage{
+        Data in local storage persists even after the browser is closed and reopened.
+        Data is stored until explicitly deleted by the user or through JavaScript.
+        Data is shared across all tabs and windows with the same origin (domain).
+    }
+    Session Storage{
+        Data in session storage is only available for the duration of the page session.
+        Data is cleared when the page session ends, which happens when the browser or tab is closed.
+        Data is only accessible within the same tab or window.
+        Different tabs or windows will have separate session storage, even if they are from the same origin.
+    }
+
+}
+BOM (Browser Object Model):{
+    The Browser Object Model (BOM) is a collection of objects provided by the browser to interact with the web page and its environment. 
+     The BOM allows you to control the browser window, navigate to different URLs, retrieve information about the browser, etc.
+}
+Regex{
+    const pattern = /hello/;
+    const str = "hello world";
+    console.log(pattern.test(str)); // true
+    const replacedStr = str.replace(pattern, "hi");
+    const caseInsensitivePattern = /hello/i;
+}
+Session and cookies{
+    those are mechanisms to store information about user's interactions with a web application;
+    Cookies: Small data storage on the client side, used for persisting information across browser sessions. Useful for non-sensitive data and settings.
+    Sessions: Server-side storage with a session ID on the client side. Better suited for sensitive data and user-specific information that should not be exposed to the client.
+}
+Load balancing{
+    load balancing is technique used to distribute incoming network traffic across multiple servers to ensure no single server becomes overwhelmed.
+    Hardware Load Balancers: Physical devices that distribute traffic.
+    Software Load Balancers: Software solutions that run on standard servers.
+}
+Sibling communication in React{
+    1- prop drilling.
+    2- redux state management.
+    3- useContext.
+}
+CORS{
+    CORS allows requests from one origin to another
+    Browser sends a preflight OPTIONS request to check permissions
+}
+CSRF {
+    CSRF is an attack where a malicious site tricks a user's browser
+    into making unintended requests to another site where the user is authenticated
+}    
+
+
+
+
+Debugging Node.js applications
+Creating RESTful APIs
+Working with databases (MongoDB, MySQL)
+Performance optimization
+Handling file uploads
+Implementing caching
+Creating CLI applications
+Unit testing with Mocha, Chai, Jest
+Integrating with other services (APIs, OAuth)
+Rate limiting
+Scalable architecture patterns
+Middleware chaining
+Using GraphQL with Node.js
+WebSockets
+Deployment (PM2, Docker)
+Real-time applications
+Monitoring and logging
+Security best practices
