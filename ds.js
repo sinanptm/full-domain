@@ -8,8 +8,6 @@ const insertAtBottom = (stack, element) => {
         stack.push(temp);
     }
 };
-
-
 const reverseStack = (stack) => {
     if (stack.length > 0) {
         let temp = stack.pop();
@@ -17,6 +15,8 @@ const reverseStack = (stack) => {
         insertAtBottom(stack, temp);
     }
 };
+
+
 // ______________________________________________________________
 
 const leanear = (arr, target) => {
