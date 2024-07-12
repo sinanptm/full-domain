@@ -25,11 +25,6 @@ transactions: {
         Ensures that once a transaction is committed, its effects are permanently recorded in the database.
     }
 }
-clustering{
-    deployment of multiple MongoDB instances together to provide high availability and fault tolerance.
-    involves setting up replica sets to ensure data replications, high availability and failover capavilities.
-}
-
 Sharding and Replication
 Sharding: Provides horizontal scaling by distributing data across multiple shards.
 sharding: {
@@ -40,6 +35,11 @@ replication: {
     Ensures redundancy and high availability by copying data across multiple servers.
     high availability on a failover
     durability/data safety
+}
+clustering{
+    deployment of multiple MongoDB instances together to provide high availability and fault tolerance.
+    involves setting up replica sets to ensure data replications, high availability and failover capavilities.
+    using replication and sharding together for high availability and consistency.
 }
 Aggregation operations process data records and return computed results.
 $lookup: {
@@ -245,8 +245,6 @@ $all
 Look Up
 
 
-concurrencyFind documents from the ""orders""
-collection where the ""items"" array size is greater than or equal to 3.Get avg year in the doc
 all 
 in
 elemMatch
@@ -254,9 +252,3 @@ bulk write
 batch sizing
 auto scaling
 event emitter ,
-$all vs $in
-
-
-
-min max avg
-update

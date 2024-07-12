@@ -1,36 +1,43 @@
 JavaScript Basics
 
 Const, Let, Var difference{
-     const: Block-scoped, immutable reference (for primitives, and can't reassign reference for objects)
-     let: Block-scoped, mutable reference
-     var: Function-scoped or globally scoped, hoisted to the top of the function or global scope
+    const: Block-scoped, immutable reference (for primitives, and can't reassign reference for non-primitive).
+    let: Block-scoped, mutable reference
+    var: Function-scoped or globally scoped, hoisted to the top of the function or global scope
 }
 Shallow copy vs deep copy{
-     Shallow Copy:
-     Creates a new object/array, but nested objects/arrays are shared between the original and the copy.
-     Modifying the nested array in shallowCopyArray affects the originalArray
+    Shallow Copy:
+    Creates a new object/array, but nested objects/arrays are shared between the original and the copy.
+    Modifying the nested array in shallowCopyArray affects the originalArray
     let shallowCopyArray = [...originalArray];
 
-     Deep Copy:
-     Creates a completely new object/array with all nested objects/arrays also copied.
-     Modifying the nested array in deepCopyArray does not affect the originalArray
+    Deep Copy:
+    Creates a completely new object/array with all nested objects/arrays also copied.
+    Modifying the nested array in deepCopyArray does not affect the originalArray
     let deepCopyArray = JSON.parse(JSON.stringify(originalArray));
 }
-Hoisting{
-     Variables and function declarations are hoisted to the top of their scope during compilation phase.
-     var declarations are hoisted entirely, while let and const are hoisted but not initialized.
-}
+Hoisting
+    Variables and function declarations are hoisted to the top of their scope during compilation phase.
+    var declarations are hoisted entirely, while let and const are hoisted but not initialized.
+    Temporal dead zone (TDZ): the state of let and const variables before initialization
+
 Arrow function vs regular function (this) {
-    this refferse to the execution contest of an object
-    arrow function do not have their own this context, instead they inherit from the sarounding context
-        in normal function this refers to the object that called the function 
+    Normal Functions: 
+        this is determined by how the function is called.
+        Called in the global context: this refers to the global object (window in browsers).
+        Called as an object method: this refers to the object.
+        Used as a constructor: this refers to the new instance.
+        Used as an event handler: this refers to the element that received the event.
+
+    Arrow Functions:
+        this is lexically inherited from the surrounding context at the time the arrow function is defined, not called.
 }
 Spread operator and rest parameters{
     Rest: multiple elements into a single array.
-        Spread : an iterable(like an array, string, or object literal) into its individual elements.
+    Spread : an iterable(like an array, string, or object literal) into its individual elements.
 }
 Closure{
-    a Closure is a function that has access to its own scope and the scope of the outer functions  and the global scope.Closure are created whenewher a function are created inside another function it will allow inner function to accees the outer function elements such as variables params even after the fininshing the execution of outer function.
+    a Closure is a function that has access to its own scope and the scope of the outer functions and the global scope.Closure are created whenewher a function are created inside another function it will allow inner function to access the outer function elements such as variables params even after the fininshing the execution of outer function.
 }
 Event loop{
     Manages the execution of code in a non - blocking way.
@@ -44,7 +51,7 @@ Event loop{
             'process.nextTick',
             'await expressions'
         ],
-         3. Macrotasks: Executes after microtasks are processed
+        3. Macrotasks: Executes after microtasks are processed
         macrotasks: [
             'setTimeout',
             'setInterval',
@@ -56,26 +63,29 @@ Event loop{
 }
 Promises, async / await, and the difference{
     A promise represents the eventual completion(or failure) of an asynchronous operation
-    async / await is syntactic sugar built on top of promises.It allows writing asynchronous code in a synchronous - like manner, making it easier to read and maintain.
+    async / await is syntactic sugar built on top of promises. It allows writing asynchronous code in a synchronous - like manner, making it easier to read and maintain.
 }
 Event bubbling and capturing{
     event bubbling: is the phase in which an event start from the triggered element and propogate to the ancestors.
     event capturing: is the phase in which an event start from outermost element and propogates down to the target element
 }
+Event delegation{
+     By attaching a single event listener to a common ancestor of all the elements you want to handle events for, you can manage events for multiple elements through this one listener. eg: cards.
+}
 Higher - order functions(HOF) examples[
     HOF are functions that either takes functions as arg or return functions as result.
-        eg: arr.map((a) => a * 2); , 
+        eg: arr.map(a => a * 2); 
 ]
 Pure functions{
     for the same input a pure function will always return the same output.
     pure function does not modify variables outside of its scope
-    don't perform any observable actions (such as modifying a file or printing to the console).
+    don't perform any observable actions (such as modifying a docs or printing to the console).
 }
 Prototypal inheritance{
     Prototypal inheritance allows objects to inherit properties and methods from other objects through the prototype chain.
     Each object in JavaScript has a prototype object, which it inherits properties and methods from.    
 }
-Call, Apply, Bind{
+Function borrowing :Call, Apply, Bind {
     Use call() or apply() when you want to borrow a function and use it with different data(context) right now.
     Use bind() when you want to create a new version of a function that is permanently tied to specific data(context) for later use.
     
@@ -110,13 +120,6 @@ Call, Apply, Bind{
 }
 Error handling{
     .Try - Catch Blocks:
-    try {
-
-    } catch (error) {
-
-    } finally {
-
-    }
     .  Throwing Errors:
     throw new Error(error message);
     . Asynchronous Error Handling:
@@ -143,7 +146,7 @@ Function composition{
 }
 Typeof and instanceOf {
     typeof operator is used to get the type of a variable or expression.It returns a string indicating the type of the unevaluated operand.
-        console.log(typeof 42);           "number"
+        console.log(typeof 42); // "number"
 
     The instanceof operator is used to check whether an object is an instance of a specific class or constructor function
     
@@ -157,22 +160,19 @@ Typeof and instanceOf {
 Object and array methods(map, filter, reduce, forEach){
     map: A new array with each element being the result of the callback function.
     filter: A new array with elements that pass the test.
-        reduce : The single value that results from the reduction.
-            forEach : will execute a function for each element, not to produce a return value.it will manipulate the arr.
+    reduce : The single value that results from the reduction.
+    forEach : will execute a function for each element, not to produce a return value.it will manipulate the arr.
 
-                Object.keys() : return array of strings of keys in object.
-                    Object.values() : An array of the values of the object's own properties.
+    Object.keys() : return array of strings of keys in object.
+    Object.values() : An array of the values of the object's own properties.
     console.log(Object.entries(person););  Output: [["name", "Alice"], ["age", 25], ["city", "New York"]];
-}
-Temporal Dead Zone(TDZ){
-    The TDZ refers to the period between entering scope and the actual declaration of a variable using let or const.
 }
 Implicit and explicit type casting{
     Implicit type casting occurs automatically when values are converted between different data types without explicit instructions from the programmer
     eg  const str = "The number is: " + 32;
-const result = "10" * 2;  20
+    const result = "10" * 2;  20
     explicit type casting occurs when the programmer manually converts a value from one data type to another using built-in functions
-const num = Number('123');
+    const num = Number('123');
 }
 Static vs dynamically typed languages{
     static typed:  in java, c, c++ and all variable declarations are explicit like int num = 0; 
@@ -184,16 +184,13 @@ Scope(global, local, block){
     block:  block scope refers to variables declared within curly braces { }
 }
 Closures and lexical scope{
-    Lexical scope: means that the scope of a variable is determined by its position within the code.
-        closure : is the combination of a function bundled together(enclosed) with references to its surrounding state(the lexical environment).
+    Lexical scope: means that the scope of a variable is determined by its position within the code, where the variable is been written.
+    closure : is the combination of a function bundled together(enclosed) with references to its surrounding state(the lexical environment).
 }
 Debouncing and throttling{
     techniques used to control the rate at which a function is executed
-    Debouncing: Executes the function after a specified delay time has elapsed since the last event
-    Throttling: Executes the function at most once every specified interval.
-}
-Event delegation{
-     By attaching a single event listener to a common ancestor of all the elements you want to handle events for, you can manage events for multiple elements through this one listener.
+    Debouncing: Executes the function after a specified delay time has elapsed since the last event. eg: input fields
+    Throttling: Executes the function at most once every specified interval. eg: scrolling, resizing
 }
 Modules(import/export){
     Modules in JavaScript provide a way to organize and reuse code by splitting it into separate files
@@ -201,24 +198,25 @@ Modules(import/export){
 Asynchronous JavaScript(callbacks, promises, async / await){
     Callbacks: A function passed as an argument to another function, to be executed after the first function completes.
     Promises: An object representing the eventual completion or failure of an asynchronous operation.
-        async / await : Syntactic sugar on top of promises, making asynchronous code look and behave like synchronous code.
+    async / await : Syntactic sugar on top of promises, making asynchronous code look and behave like synchronous code.
 }
 JavaScript Engine and runtime{
     JavaScript engine is a program or interpreter that executes JavaScript code.eg: V8, spiderMonkey
-        The JavaScript engine is responsible for parsing, compiling, and executing JavaScript code.
+    The JavaScript engine is responsible for parsing, compiling, and executing JavaScript code.
     JavaScript runtime provides the environment in which JavaScript code executes, including the engine and additional APIs provided by the host environment(browser or Node.js).  
     runtime will have: 
         js engine, webApi(setTimeout, fetch...), node.js api's (fs,http...), event loop(a queue of callback functions waiting to be executed ),
         microTask queue(a list of resolved promises), 
 }
 Memory management(garbage collection){
+    in JavaScript memory allocation and garbage collection are done automatically by JavaScript engine.
     Memory management: The process of allocating, using, and freeing memory in a program.
-        allocation : Memory is allocated for variables, objects, and functions when they are created.
-            Usage : The allocated memory is used to store data and execute code.
-                De-allocation : Memory that is no longer needed is released back to the system.
+    allocation : Memory is allocated for variables, objects, and functions when they are created.
+    Usage : The allocated memory is used to store data and execute code.
+    De-allocation : Memory that is no longer needed is released back to the system.
     Garbage Collection(GC) : Automatic process of finding and reclaiming memory that is no longer in use by the program.
-        Mark: The garbage collector starts from root objects and marks all reachable objects.
-            Sweep: The garbage collector then sweeps through memory, reclaiming unmarked(unreachable) objects.
+    Mark: The garbage collector starts from root objects and marks all reachable objects.
+    Sweep: The garbage collector then sweeps through memory, reclaiming unmarked(unreachable) objects.
 }
 Strict mode{
     It helps you to write cleaner code, like preventing you from using undeclared variables.
@@ -258,14 +256,13 @@ window{
 }
 Micro Tasks Execution:{
     The event loop processes the micro task queue before the macro task queue.
-    "Micro Task: Promise" is logged because the Promise .then callback is executed.
     Promises (.then and .catch handlers)
+    async/await
     MutationObserver
     process.nextTick (Node.js)
 }
 Macro Tasks Execution:{
     The event loop then processes the macro task queue.
-    "Macro Task: setTimeout" is logged because the setTimeout callback is executed.
     setTimeout
     setInterval
     setImmediate (Node.js)

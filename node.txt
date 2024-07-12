@@ -1,12 +1,11 @@
 Node.js
 
-single-threaded app is actually leveraging the multi-threaded behavior of another process: the database;
-ref : https://stackoverflow.com/a/34857298/25472984
-
 What is Node.js and its features{
     NodeJS is a JavaScript environment which uses a single thread to handle all the requests. All the requests are handled asynchronously, meaning the client side never needs to wait for data when requested. It also means it is non-blocking; if a request is being processed in the CPU, the I/O operations are not blocked.
     JavaScript is a synchronous blocking single-threaded language
     to make async programming possible we want to make use of libuv library
+
+    NodeJS features:
     Asynchronous and Event-Driven: 
     Single-Threaded, Non-Blocking I/O Model
     NPM (Node Package Manager)
@@ -35,7 +34,7 @@ Event loop, libuv, and threadPool{
     5. Close queue
     6. I/O polling
 }
-setimmidiate vs process.nextTick() {
+setImmediate vs process.nextTick() {
     process.nextTick() has higher priority and executes before setImmediate.
     setImmediate executing in the next iteration of the event loop after I/O events. 
 }
@@ -46,7 +45,7 @@ Child process (spawn and fork and exec){
         use when need to execute a scripts, shell commands or launching application in a new process
 
     fork 
-        for creating nodejs processes it establish a ipc cummunicaiton chanel .
+        for creating nodejs processes, it establish a ipc cummunicaiton chanel .
 
     exec // for shell commands
         suitable for executing shell cammands where you need the intere result of proccess.
@@ -74,7 +73,7 @@ Multiprocessing:{
 Difference between Worker Thread, Cluster, and Child Process{
     Worker Threads are threads within a single Node.js process, suitable for CPU-bound tasks within a single machine.
     Clusters are multiple instances of the entire Node.js process running separately, suitable for distributing workload across multiple cores or machines.
-    Child Processes, as discussed earlier, are independent processes spawned by a Node.js process, useful for executing external commands or running other applications.
+    Child Processes, are independent processes spawned by a Node.js process, useful for executing external commands or running other applications.
 }
 Types of Streams{
     Streams are a way to handle any kind of end-to-end information exchange in an efficient manner.  like reading writing networking.
@@ -88,7 +87,6 @@ Middleware types (application, router, error handling){
     Router-level Middleware
     Error-handling Middleware
 }
-Serving static files
 HTTP vs HTTPS{
     HTTP (HyperText Transfer Protocol): Default port 80
     HTTPS (HyperText Transfer Protocol Secure): 443

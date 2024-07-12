@@ -8,6 +8,8 @@ const insertAtBottom = (stack, element) => {
         stack.push(temp);
     }
 };
+
+
 const reverseStack = (stack) => {
     if (stack.length > 0) {
         let temp = stack.pop();
@@ -101,105 +103,98 @@ const insertion = arr => {
 }
 // ______________________________________________________________
 
-// const quickSort = (arr) => {
-//     if (arr.length <= 1) {
-//       return arr;
-//     }
+const quickSort = (arr) => {
+    if (arr.length <= 1) {
+      return arr;
+    }
 
-//     let pivot = arr[0];
-//     let leftArr = [];
-//     let rightArr = [];
+    let pivot = arr[0];
+    let leftArr = [];
+    let rightArr = [];
 
-//     for (let i = 1; i < arr.length; i++) {
-//       if (arr[i] < pivot) {
-//         leftArr.push(arr[i]);
-//       } else {
-//         rightArr.push(arr[i]);
-//       }
-//     }
+    for (let i = 1; i < arr.length; i++) {
+      if (arr[i] < pivot) {
+        leftArr.push(arr[i]);
+      } else {
+        rightArr.push(arr[i]);
+      }
+    }
 
-//     return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
-//   };
+    return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
+  };
 
 
 // ______________________________________________________________
 
-// const mergeSort = arr => {
-//     if (arr.length <= 1) {
-//         return arr;
-//     }
+const mergeSort = arr => {
+    if (arr.length <= 1) {
+        return arr;
+    }
 
-//     const middle = Math.floor(arr.length / 2);
-//     const left = arr.slice(0, middle);
-//     const right = arr.slice(middle);
-//     return merge(mergeSort(left), mergeSort(right));
-// }
-
-
-// function merge(left, right) {
-//     const res = [];
-//     while (left.length && right.length) {
-//         if (left[0] <= right[0]) {
-//             res.push(left.shift())
-//         } else {
-//             res.push(right.shift())
-//         }
-//     }
-//     return [...res, ...left, ...right]
-// }
+    const middle = Math.floor(arr.length / 2);
+    const left = arr.slice(0, middle);
+    const right = arr.slice(middle);
+    return merge(mergeSort(left), mergeSort(right));
+}
 
 
-
-// class ListNode {
-//     constructor(val,next){
-//         this.val = val??null;
-//         this.next = next??null;
-//     }
-// }
-
-// class LinkedList {
-//     constructor(){
-//         this.head = null;
-//         this.length = 0;
-//     }
-//     add(val){
-//         let newNoe= new ListNode(val);
-//         if (!this.head) {
-//             this.head = newNoe
-//         } else {
-//             let cur = this.head;
-//             while (cur.next) {
-//                 cur = cur.next;
-//             }
-//             cur.next = newNoe
-//         }
-//         this.length++;
-//     }
-//     get(){
-//         let res = []
-//         let cur = this.head
-//         while (cur) {
-//             res.push(cur.val)
-//             cur = cur.next
-//         }
-//         return res
-//     }
-// }
-
-// let list = new LinkedList()
-// list.add(1)
-// list.add(12)
-// list.add(133)
-// list.add(1444)
-// console.log(list.get());
+function merge(left, right) {
+    const res = [];
+    while (left.length && right.length) {
+        if (left[0] <= right[0]) {
+            res.push(left.shift())
+        } else {
+            res.push(right.shift())
+        }
+    }
+    return [...res, ...left, ...right]
+}
 
 
 
+class ListNode {
+    constructor(val,next){
+        this.val = val??null;
+        this.next = next??null;
+    }
+}
+
+class LinkedList {
+    constructor(){
+        this.head = null;
+        this.length = 0;
+    }
+    add(val){
+        let newNoe= new ListNode(val);
+        if (!this.head) {
+            this.head = newNoe
+        } else {
+            let cur = this.head;
+            while (cur.next) {
+                cur = cur.next;
+            }
+            cur.next = newNoe
+        }
+        this.length++;
+    }
+    get(){
+        let res = []
+        let cur = this.head
+        while (cur) {
+            res.push(cur.val)
+            cur = cur.next
+        }
+        return res
+    }
+}
+
+
+
+// fibunachi in  Dynamic programming(DP)
 const fib = (n, memo = {}) => {
     if (n <= 1) return n;
     if (memo[n]) return memo[n];
     memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
     return memo[n];
 }
-
 

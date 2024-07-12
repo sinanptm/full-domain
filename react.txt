@@ -1,4 +1,8 @@
 React 
+
+Reconciliation{
+    React's way of diffing the virtual DOM tree with the updated virtual DOM to determine the most efficient way to update the real DOM.
+}
 diffing{
      diffing is a core mechanism in React that enables efficient updates to the DOM, contributing to the performance and maintainability of React applications.
 }
@@ -47,9 +51,6 @@ Synthetic events vs native events{
         Cross-Browser Compatibility:
     }
 }
-Reconciliation{
-    React's way of diffing the virtual DOM tree with the updated virtual DOM to determine the most efficient way to update the real DOM.
-}
 Higher-order components (HOCs){
     hocs allow you to reuse component logic across multiple components. 
 }
@@ -80,8 +81,13 @@ Error handling in React{
     );
     
 }
-
-
-Redux Thunk and Redux Saga are both middleware libraries that help manage side effects and asynchronous operations in Redux applications. The main difference between the two is how they handle side effects:
-Redux Thunk: Better for simpler applications with straightforward asynchronous logic.
-Redux Saga: Better for more complex applications with advanced requirements, such as long-running transactions, multiple concurrent processes, and fine-grained control over side effects. Sagas can also make it easier to write clean and readable tests. However, they may have a steeper learning curve than Redux Thunk. 
+Redux Thunk vs Redux Saga{
+    Redux Thunk and Redux Saga are both middleware libraries that help manage side effects and asynchronous operations in Redux applications. The main difference between the two is how they handle side effect s:
+    Redux Saga: Better for more complex applications with advanced requirements, such as long-running transactions, multiple concurrent processes, and fine-grained control over side effects. Sagas can also make it easier to write clean and readable tests. However, they may have a steeper learning curve than Redux Thunk. 
+    Redux Thunk: Better for simpler applications with straightforward asynchronous logic.
+}
+Sibling communication in React{
+    1- prop drilling.
+    2- redux state management.
+    3- useContext.
+}

@@ -2,22 +2,28 @@ Computer Science and Data Structures
 
 hashTable{
     hashing{
-        dvision method 
+        division method 
         multiplication method 
-        midsquare method
-        folding mehtod
+        midSquare method
+        folding method
         universal function.
     }
-    colision managment tecnique{
+    collision management technique{
         Chaining: Uses linked lists or other structures to store multiple keys at the same index.
         Linear Probing: Searches sequentially until an empty slot is found.
         Quadratic Probing: Uses a quadratic function to probe for an empty slot.
         Double Hashing: Uses a secondary hash function to determine the next probe location.
-    }   
-}
-Stack overflow vs underflow{
-    Stack Overflow: Too much data pushed onto the stack.
-    Stack Underflow: Attempt to pop data from an empty stack.
+    }  
+    Average Case:{
+        Insertion: O(1)
+        Deletion: O(1)
+        Search: O(1)
+    }
+    Worst Case:{
+        Insertion: O(n)
+        Deletion: O(n)
+        Search: O(n) 
+    }
 }
 Hash tables: applications, load factor, types of hashing.{
     applications:{
@@ -32,100 +38,7 @@ Hash tables: applications, load factor, types of hashing.{
 }
 height balanced tree{
     The difference between the heights of the left and the right subtree for any node is not more than one.
-    The left subtree is balanced.
-    The right subtree is balanced.
-}
-AVL trees {
-    it's a tree that with a balanced hight.  
-    O(log n) time complexity for insertion, deletion, and lookup operations.
-    we can see wether a tree is balanced or not using balance factor
-    if a tree is not balanced we have to perform rotation and make the tree balanced
-    2 lr rotation - double rotation
-    1 ll rotation - single
-    3 rr rotation - double
-    4 rl rotation - single
-}
-Red black tree{
-    root is always black 
-    nill node is black.
-    no adjutant can be red
-    children of a red should be black
-}
-red-black vs avl{
-    Comparison: Red-black trees are better for scenarios with frequent insertions and deletions, while AVL trees are better for scenarios with frequent lookups due to stricter height balance.
-    red-black{
-        Time Complexity: Red-black trees guarantee O(log n) time complexity for insertion, deletion, and lookup operations.
-        Balancing: Red-black trees are less rigidly balanced than AVL trees, resulting in simpler and faster insertions and deletions.
-        Use Case: Suitable for scenarios where insertions and deletions are more frequent, such as in many language libraries (e.g., Java's TreeMap, C++ STL's map).
-    }
-    avl{
-        Time Complexity: AVL trees also guarantee O(log n) time complexity for insertion, deletion, and lookup operations.
-        Balancing: AVL trees are more strictly balanced than red-black trees, which leads to faster lookup times due to better-balanced height.
-        use Case: Ideal for applications where read operations are more frequent and performance is critical, due to the stricter balancing.
-    }  
-}   
-Time complexity and Big O notation{
-    Time Complexity is a measure used to describe the efficiency of an algorithm in terms of the amount of time it takes to complete as a function of the input size. It helps in understanding how an algorithm's run time increases as the size of the input increases.
-    Big O Notation is a mathematical notation used to describe the upper bound of an algorithm's time complexity. It characterizes functions according to their growth rates and is used to provide an asymptotic analysis of an algorithm.
-    O(1)
-    O(n^2)
-    O(n log n)
-    O(log n)
-}
-Dynamic programming{
-    DP is effective when the problem can be broken down into smaller, overlapping subproblems.
-    These subproblems are solved independently, and their results are reused multiple times.
-}
-Memory management and garbage collection{
-    In JavaScript, memory management and garbage collection are handled automatically by the JavaScript engine (like V8 in Chrome or Node.js):
-    Automatic Allocation: Memory is allocated for objects and variables as needed during program execution.
-    Garbage Collection: JavaScript engines employ sophisticated garbage collection algorithms (e.g., generational garbage collection) to reclaim memory occupied by objects that are no longer reachable, optimizing memory usage and performance.
-}
-graph{
-    a graph is a data structure that consists of a set of vertices (also called nodes) and a set of edges connecting pairs of vertices
-    
-    Undirected Graph: A graph where edges have no direction. The edge connecting vertex A to vertex B is the same as the edge connecting vertex B to vertex 𝐴
-    Directed Graph (Digraph): A graph where edges have a direction. The edge from vertex A to vertex 𝐵 is distinct from the edge from vertex B to vertex A.
-    Weighted Graph: A graph where each edge has an associated weight or cost. Weighted graphs are used to represent relationships where there is a numerical significance to the connections between vertices.
-    Acyclic Graph: A graph with no cycles (no closed loops of edges).
-    Cyclic Graph: A graph that contains at least one cycle.
-}
-DFS AND BFS{
-    DFS{
-        DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. Here's a breakdown: 
-        Visiting: DFS starts at a selected vertex and visits all possible vertices along each branch before backtracking.
-        Exploration: It explores as deeply as possible along each branch before moving to an unvisited branch.
-    }
-    BFS{
-        Usage: BFS is useful for finding the shortest path in an unweighted graph, checking if a graph is bipartite, and finding the connected components of a graph.
-        Visiting: BFS systematically explores the nodes layer by layer.
-        Exploration: It explores all neighbors at the present depth level before moving on to nodes at the next depth level.
-        BFS is another graph traversal algorithm that explores neighbors at the present depth level before moving on to vertices at the next depth level. Key points include
-    }
-}
-degree of node{
-    In graph theory, the degree of a node (or vertex) in a graph is the number of edges connected to it.
-}
-spanning tree{
-    It is a subset of the original graph's edges that connects all vertices together, without any cycles.
-    It retains all vertices of the original graph.
-    Depth-First Search (DFS) and Breadth-First Search (BFS) are common algorithms used to find spanning trees.
-    Minimum Spanning Tree (MST)
-    Maximum Spanning Tree 
-    Breadth-First Search (BFS) Spanning Tree:
-    Fundamental Spanning Tree:
-}
-weighted graph{
-    A weighted graph is a type of graph where each connection (edge) between points (vertices) has a number (weight) associated with it. This number could represent things like distance, cost, time,
-     or any other measure that makes sense for the problem you're working on.
-}
-complexity of graph operations{
-    Traversal (BFS, DFS): O(V + E), where V is the number of vertices and E is the number of edges. This is because each vertex and edge are visited once.
-    Finding neighbors of a vertex: O(degree of the vertex), where the degree is the number of edges connected to the vertex. In the worst case, it can be O(V).
-    Checking if an edge exists: O(degree of the vertex) in the worst case.
-}
-Graphs: BFS vs DFS, Minimum Spanning Tree{
-    A minimum spanning tree (MST) is defined as a spanning tree that has the minimum weight among all the possible spanning trees. 
+    The left subtree and is balanced.
 }
 Complete Binary Tree:{
     The last level of the tree is filled from left to right without any gaps.
@@ -139,10 +52,137 @@ Perfect Binary Tree:{
     All levels of the tree are fully filled.
     All leaf nodes are at the same level.
 }
+red-black vs avl{
+    either of them are trees with a balanced hight.  
+    O(log n) time complexity for insertion, deletion, and lookup operations.
+    we can see wether a tree is balanced or not using balance factor
 
+    Comparison: Red-black trees are better for scenarios with frequent insertions and deletions, while AVL trees are better for scenarios with frequent lookups due to stricter height balance.
+    red-black{
+        Time Complexity: Red-black trees guarantee O(log n) time complexity for insertion, deletion, and lookup operations.
+        Balancing: Red-black trees are less rigidly balanced than AVL trees, resulting in simpler and faster insertions and deletions.
+        Use Case: Suitable for scenarios where insertions and deletions are more frequent, such as in many language libraries (e.g., Java's TreeMap, C++ STL's map).
+        root is always black 
+        nill node is black.
+        no adjutant can be red
+        children of a red should be black
+    }
+    avl{
+        Time Complexity: AVL trees also guarantee O(log n) time complexity for insertion, deletion, and lookup operations.
+        Balancing: AVL trees are more strictly balanced than red-black trees, which leads to faster lookup times due to better-balanced height.
+        use Case: Ideal for applications where read operations are more frequent and performance is critical, due to the stricter balancing.
+        if a tree is not balanced we have to perform rotation and make the tree balanced
+        Single Rotation:{
+            LL Rotation: Right rotation when the left subtree of the left child is imbalanced.
+            RR Rotation: Left rotation when the right subtree of the right child is imbalanced.
+        }
+        Double Rotation:{
+            LR Rotation: Left-Right rotation, first a left rotation on the left child followed by a right rotation on the node itself.
+            RL Rotation: Right-Left rotation, first a right rotation on the right child followed by a left rotation on the node itself.
+        }
+    }  
+}
+Time complexity and Big O notation{
+    Time Complexity is a measure used to describe the efficiency of an algorithm in terms of the amount of time it takes to complete as a function of the input size. It helps in understanding how an algorithm's run time increases as the size of the input increases.
+    Big O Notation is a mathematical notation used to describe the upper bound of an algorithm's time complexity. It characterizes functions according to their growth rates and is used to provide an asymptotic analysis of an algorithm.
+    O(1)
+    O(n^2)
+    O(n log n)
+    O(log n)
+}
+Dynamic programming{
+    DP is effective when the problem can be broken down into smaller, overlapping sub-problems.
+    These sub-problems are solved independently, and their results are reused multiple times.
+}
+Memory management and garbage collection{
+    In JavaScript, memory management and garbage collection are handled automatically by the JavaScript engine (like V8 in Chrome or Node.js):
+    Automatic Allocation: Memory is allocated for objects and variables as needed during program execution.
+    Garbage Collection: JavaScript engines employ sophisticated garbage collection algorithms (e.g., generational garbage collection) to reclaim memory occupied by objects that are no longer reachable, optimizing memory usage and performance.
+}
+graph{
+    a graph is a data structure that consists of a set of vertices (also called nodes) and a set of edges connecting pairs of vertices
+    degree of node:  the degree of a node (or vertex) in a graph is the number of edges connected to it.
 
-
-find right child element in heap
-find left child element in heap
-find parent child element in heap
-function compositionoptions methods
+    Undirected Graph: A graph where edges have no direction. The edge connecting vertex A to vertex B is the same as the edge connecting vertex B to vertex 𝐴
+    Directed Graph (Digraph): A graph where edges have a direction. The edge from vertex A to vertex 𝐵 is distinct from the edge from vertex B to vertex A.
+    Weighted Graph: A graph where each edge has an associated weight or cost. Weighted graphs are used to represent relationships where there is a numerical significance to the connections between vertices.
+    Acyclic Graph: A graph with no cycles (no closed loops of edges).
+    Cyclic Graph: A graph that contains at least one cycle.
+}
+DFS AND BFS{
+    DFS{
+        DFS is a graph traversal algorithm that explores as far as possible along each branch before backtracking. Here's a breakdown: 
+        Visiting: DFS starts at a selected vertex and visits all possible vertices along each branch before backtracking.
+        Exploration: It explores as deeply as possible along each branch before moving to an unvisited branch.
+        This approach uses a stack to keep track.
+    }
+    BFS{
+        Usage: BFS is useful for finding the shortest path in an unweighted graph, checking if a graph is bipartite, and finding the connected components of a graph.
+        Visiting: BFS systematically explores the nodes layer by layer.
+        Exploration: It explores all neighbors at the present depth level before moving on to nodes at the next depth level.
+        BFS is another graph traversal algorithm that explores neighbors at the present depth level before moving on to vertices at the next depth level. Key points include
+        This approach uses a queue to keep track of nodes to be explored next.
+    }
+}
+spanning tree{
+    It is a subset of the original graph's edges that connects all vertices together, without any cycles.
+    It retains all vertices of the original graph.
+    Depth-First Search (DFS) and Breadth-First Search (BFS) are common algorithms used to find spanning trees.
+    Minimum Spanning Tree (MST)
+    Maximum Spanning Tree 
+    Breadth-First Search (BFS) Spanning Tree:
+    Fundamental Spanning Tree:
+}
+Minimum Spanning Tree (MST){
+    MST is a subset of the edges of a connected, undirected graph that connects all the vertices together without any cycles and with the minimum possible total edge weight.
+    Algorithms to Find MST:{
+        kruskal's algorithm
+        prims's algorithm
+    }
+}
+weighted graph{
+    A weighted graph is a type of graph where each connection (edge) between points (vertices) has a number (weight) associated with it. This number could represent things like distance, cost, time,
+    or any other measure that makes sense for the problem you're working on.
+}
+complexity of graph operations{
+    Traversal (BFS, DFS): O(V + E), where V is the number of verdtices and E is the number of edges. This is because each vertex and edge are visited once.
+    Finding neighbors of a vertex: O(degree of the vertex), where the degree is the number of edges connected to the vertex. In the worst case, it can be O(V).
+    Checking if an edge exists: O(degree of the vertex) in the worst case.
+}
+head {
+    Heaps are specialized tree-based data structures that satisfy the heap property.
+    Heapify is the process of creating a heap data structure from a binary tree
+    Max-Heap:{
+        In a max-heap, for any given node I, the value of I is greater than or equal to the values of its children. The largest value is at the root.
+    }
+    Min-Heap:{
+        In a min-heap, for any given node I, the value of I is less than or equal to the values of its children. The smallest value is at the root.
+    }
+    Binary-Heap:{
+        a binary heap is a complete binary tree that means all levels are completely filled expect last level, which is filled from the left.
+    }
+    Heapify Up {
+        after insert a new node.
+        After adding the element at the end of the heap (to maintain the complete binary tree property), we compare the inserted element with its parent. If the heap property is violated, we swap the element with its parent and repeat the process until the heap property is restored.
+    }
+    Heapify down {
+        when deleting the root node.
+        deleting the root element. After removing the root, we move the last element to the root position (to maintain the complete binary tree property). We then compare the new root with its children. If the heap property is violated, we swap it with the appropriate child (larger child in max-heap or smaller child in min-heap) and repeat the process until the heap property is restored.
+    }
+    Insert: O(log N), where N is the number of elements in the heap.
+    Delete/Extract: O(log N).
+    Peek: O(1). 
+    Heap sort: O(N log N);
+}
+Trie {
+    each node represents a word
+    the root is typically empty. and each path down the tree represents a word or prefix.
+    a code can have multiple children each corresponding to deferent character.
+    Insert: O(M), where M is the length of the word.
+    Search: O(M).
+    Delete: O(M).
+}
+Stack overflow vs underflow{
+    Stack Overflow: Too much data pushed onto the stack.
+    Stack Underflow: Attempt to pop data from an empty stack.
+}
