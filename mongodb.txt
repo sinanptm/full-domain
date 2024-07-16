@@ -234,21 +234,36 @@ db.employees.updateMany(
   { $mul: { salary: 0.9 } }
 );
 
-
-
-$exits syntax 
-$cond
-$nin
-increment and decrement operator in mongo DB
-$pull
-$all
-Look Up
-
-
-all 
-in
-elemMatch
-bulk write
-batch sizing
-auto scaling
-event emitter ,
+- redundancy{
+    ensuring data availability and fault tolerance through replication and redundancy mechanisms. 
+    High Availability: Ensures that applications can continue to operate even if individual nodes or components fail.
+    Data Protection: Reduces the risk of data loss by maintaining multiple copies of data across different nodes.
+    Scalability: Supports horizontal scalability by adding more nodes to handle increased load and data volume.
+}
+- view{
+    Views in MongoDB are virtual collections that present the results of an aggregation pipeline as if they were documents in a collection.
+    They are defined with an aggregation pipeline, which determines how data from existing collections is transformed or aggregated.    
+}
+- explain(){
+    explain() method provides information about the query execution plan and statistics, which can help analyze and optimize query performance
+    db.employees.find().explain()
+}
+- fulltext search{
+    Full-text search in MongoDB allows you to perform text-based searches across string fields in your documents. 
+}
+- $out{
+    for storing the results of complex aggregation pipelines into collections,
+    db.sourceCollection.aggregate([
+      { $match: { status: "active" } },
+      { $group: { _id: "$category", totalAmount: { $sum: "$amount" } } },
+      { $out: "summaryCollection" }
+    ]);
+}
+- each skill and the number {
+    db.employees.aggregate([{$unwind:"$skills"},{$group:{_id:"$skills",count:{$sum:1}}}])
+}
+- developers who know more than 4 skills {
+    db.employees.aggregate([{$project:{name:1,numOfSkills:{$size:"$skills"}}},{$match:{numOfSkills:{$gte:3}}}])
+}
+- geospatial index
+- limiting size of collection

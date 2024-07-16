@@ -186,3 +186,14 @@ Stack overflow vs underflow{
     Stack Overflow: Too much data pushed onto the stack.
     Stack Underflow: Attempt to pop data from an empty stack.
 }
+
+- bit vs byte, kilobyte, units of memory
+- heterogeneous array
+- popular hashing algorithms 
+- adjacency
+- escape sequence 
+- advantages of static memory
+- circular reference
+- mutual recursion*
+- shuffle an array
+- height of BST

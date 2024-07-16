@@ -1,3 +1,4 @@
+const arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
 // ! reverse stack using recursion 
 const insertAtBottom = (stack, element) => {
     if (stack.length === 0) {
@@ -28,7 +29,6 @@ const leanear = (arr, target) => {
 // ______________________________________________________________
 
 
-const arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
 
 const binarySearch = (arr, target) => {
     let left = 0;
@@ -197,4 +197,14 @@ const fib = (n, memo = {}) => {
     memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
     return memo[n];
 }
+
+const mergeObjects = (obj1,obj2)=>{
+    for (const key in obj2) {
+        if(!(key in obj1)){
+            obj1[key] = obj2[key]
+        }
+    }
+    return obj1
+}
+
 

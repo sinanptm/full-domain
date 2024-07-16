@@ -269,3 +269,127 @@ Macro Tasks Execution:{
     I/O operations (like file read/write)
     UI rendering tasks (in browser)
 }
+
+- falsy values{
+    "" '' 
+    false
+    null 
+    undefined
+    Nan
+    0,-0
+}
+- mark and sweep*{
+    it is garbage collecting algorithm with two phases marking unused variables and sweepoing it 
+}
+- use of Symbol{
+    Symbols provide a way to create unique property keys that will not clash with any other keys, 
+    return Symbol('one')===Symbol('one') // false
+}
+- JIT{
+    JIT in JavaScript stands for Just-in-Time compilation. It's a technique used by modern JavaScript engines (like V8 in Chrome, SpiderMonkey in Firefox) to optimize the execution of JavaScript code.
+}
+- Weak Ref{
+    strong ref {
+        let obj = {}
+        let w = obj;
+        obj = null;
+        console.log(w);   // {};
+        console.log(obj);    // NULL;
+    }
+    week ref {
+        let weakMap = new WeakMap();
+        let obj = { name: "Alice" };
+        weakMap.set(obj, "some value");
+        // The 'obj' can still be garbage collected if there are no other strong references to it
+        obj = null; // Removing the strong reference
+        // At this point, 'obj' can be garbage collected and the entry in 'weakMap' will be removed
+    }
+}
+- structuredClone{
+    - Returns a deep copy of the provided value.
+    - Handles More Data Types: structuredClone can handle more complex data types like Map, Set, Date, RegExp, ArrayBuffer, TypedArray, etc.,
+        which JSON.parse(JSON.stringify(obj)) cannot.
+    - Functions and Symbols: structuredClone cannot clone functions and symbols. If these are present in the object being cloned, they will be omitted in the clone.
+}
+- labels{
+    const matrix = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ];
+    outerLoop: for (let row = 0; row < matrix.length; row++) {
+        for (let col = 0; col < matrix[row].length; col++) {
+            if (matrix[row][col] === target) {
+                console.log(`Found ${target} at row ${row}, col ${col}`);  // Found 5 at row 1, col 1
+                break outerLoop; // Exit both loops
+            }
+        }
+    }
+    Exiting Nested Loops
+    Skipping Iterations in Nested Loops: Labels can also help skip iterations in nested loops, allowing you to jump to the next iteration of an outer loop when needed.
+    The continue statement can be used with labels to skip the current iteration of a labeled loop and continue with the next iteration of the labeled loop.
+}
+- making object immutable{
+    Object.freeze(){
+        prevents new properties from being added to an object, existing properties from being removed, and existing properties from being changed.
+        it does not make nested objects immutable.
+    }
+    Object.seal(){
+         prevents new properties from being added and existing properties from being removed, but allows modification of existing properties.
+    }
+}
+- Promise.allSettled {
+    Promise.allSettled() is a method that returns a promise that resolves after all of the given promises have either resolved or rejected. It returns an array of objects that each describe the outcome of each promise.
+    promise.all will wait for all promises to resolve and promise.allSettled will wait for all promises to either reject or resolve.
+}
+- eval(){
+    eval() function in Js is a built-in function that evaluates a string as Js code and executes it. While eval() can be powerful and flexible,
+    it is generally considered dangerous and should be used with caution due to potential security risks and performance issues.
+    let expression = '3 * 4 + 2';
+    let result = eval(expression); // Evaluates the expression
+    console.log(result); // 14
+}
+- custom errors {
+    class DatabaseError extends Error {
+    constructor(message, code) {
+        super(message);
+        this.name = 'DatabaseError';
+        this.code = code; // Add custom property
+    }
+
+    getErrorCode() {
+        return this.code; // Custom method to get the error code
+    }
+    }
+
+    try {
+        throw new DatabaseError('Database connection failed', 500);
+    } catch (error) {
+        console.log(error.name); // DatabaseError
+        console.log(error.message); // Database connection failed
+        console.log(error.getErrorCode()); // 500
+        console.log(error.stack); // Stack trace
+    }
+}
+- sum of digits in a number (without using string){
+    const getSum = num =>{
+        num = Math.abs(num)
+        if(num===0)return num
+        return (num%10) + getSum(Math.floor(num/10))
+    }
+}
+- RegExp{ // used to match patterns and all
+    const regex = /pattern/flags;
+    const regex = new RegExp('pattern', 'flags');
+}
+- merge two objects but don’t replace existing keys{
+    mergeObjects = (target,source)=>{
+        for (const key in source) {
+            if (!(key in target)) {
+                target[key] = source[key]
+            }
+        }
+        return target
+    }
+}
+- date formatting

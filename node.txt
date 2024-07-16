@@ -142,3 +142,22 @@ Streams and Buffer{
 corn job{
     These are the tasks that run periodically by the operating system. Users can schedule commands the OS will run these commands automatically according to the given time.
 }
+
+- concurrency vs parallelism
+- event emitter 
+- fs.stat
+- JWT claims 
+- HTTP 301 vs 302
+- HTTP 201, 401, 400, 403
+- content types
+- form data content type
+- changing status code of response
+- XSS
+- reverse proxy
+- default port of HTTPS and HTTP
+- basic linux command
+- sudo
+- pm2
+- SSH
+- subdomain
+- DNS

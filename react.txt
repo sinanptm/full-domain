@@ -91,3 +91,13 @@ Sibling communication in React{
     2- redux state management.
     3- useContext.
 }
+
+
+- types of routers
+- portals *
+- Switch
+- useLayoutEffect*
+- reading query params
+- use cases of useRef
+- reading window size
+- polyfills 
