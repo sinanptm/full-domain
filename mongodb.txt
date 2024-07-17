@@ -10,8 +10,8 @@ cap_theorem: {
         The system continues to operate even if there are breaks in communication between nodes due to network or node failures.
     }
 }
-Transactions guarantee ACID properties, which are crucial for many applications.
 transactions: {
+    Transactions guarantee ACID properties, which are crucial for many applications.
     atomicity: {
         All or nothing; ensures that all operations in a transaction are completed or none are.
     },
@@ -25,20 +25,25 @@ transactions: {
         Ensures that once a transaction is committed, its effects are permanently recorded in the database.
     }
 }
-Sharding and Replication
-Sharding: Provides horizontal scaling by distributing data across multiple shards.
 sharding: {
+    Provides horizontal scaling by distributing data across multiple shards.
     Manages large amounts of data by dividing it into smaller, more manageable pieces.
-    according to the shard key on the collections it stored data accross multiple servers so it will also make operations faster
+    according to the shard key on the collections it stored data across multiple servers so it will also make operations faster
 }
 replication: {
     Ensures redundancy and high availability by copying data across multiple servers.
     high availability on a failover
     durability/data safety
 }
+redundancy{
+    ensuring data availability and fault tolerance through replication and redundancy mechanisms. 
+    High Availability: Ensures that applications can continue to operate even if individual nodes or components fail.
+    Data Protection: Reduces the risk of data loss by maintaining multiple copies of data across different nodes.
+    Scalability: Supports horizontal scalability by adding more nodes to handle increased load and data volume.
+}
 clustering{
     deployment of multiple MongoDB instances together to provide high availability and fault tolerance.
-    involves setting up replica sets to ensure data replications, high availability and failover capavilities.
+    involves setting up replica sets to ensure data replications, high availability and failover capabilities.
     using replication and sharding together for high availability and consistency.
 }
 Aggregation operations process data records and return computed results.
@@ -51,29 +56,19 @@ $unwind: {
 
 Upsert
 Updates the documents that match the condition; otherwise, inserts the data if no match is found.
-
-Distinct
 distinct: {
     Returns the distinct values of a field as an array.
 }
-
-
-Backup and Restore
 Backup: Creates a backup of the database.
 mongodump --out /path/to/backup
 
 Restore: Restores the database from a backup.
 mongorestore /path/to/backup
 
-
-GridFS
-GridFS: Manages large files exceeding 16MB by breaking them into smaller chunks.
-gridfs: {
+GridFS: {
+    Manages large files exceeding 16MB by breaking them into smaller chunks.
     Stores and retrieves large files by splitting them into smaller parts.
 }
-
-
-Indexes and Their Disadvantages
 indexes: {
     disadvantages: {
         Increased storage requirement.
@@ -87,28 +82,18 @@ indexes: {
         Can enforce uniqueness on a field, ensuring data integrity.
     }
 }
-
-
-
-Capped Collections
-Capped collections are a special type of collection with a fixed size that provide high-throughput operations by maintaining insert order.
-capped_collections: {
+Capped Collections: {
+    special type of collection with a fixed size that provide high-throughput operations by maintaining insert order.
     Fixed size, high-throughput insert operations, maintains the order of insertion.
 }
-
-MongoDB Profiler
-The MongoDB profiler allows monitoring the performance of database operations.
-profiler: {
+MongoDB profiler: {
     Monitors and analyzes the performance of database operations.
+    allows monitoring the performance of database operations.
 }
-
-BulkWrite
-BulkWrite operations allow performing multiple write operations at once in a single call.
-bulkWrite: {
+BulkWrite: {
+    operations allow performing multiple write operations at once in a single call.
     Executes multiple write operations in a single call for efficiency.
 }
-
-CRUD Operations
 crud_operations: {
     create: {
         Creates a new document in the collection.
@@ -127,8 +112,6 @@ crud_operations: {
         db.collection.deleteOne({})
     }
 }
-
-Comparison Operators
 comparison_operators: {
     $eq: { /* Equal to */ },
     $ne: { /* Not equal to */ },
@@ -139,36 +122,27 @@ comparison_operators: {
     $in: { /* In array */ },
     $nin: { /* Not in array */ }
 };
-
-Logical Operators
 logical_operators: {
     $and: { /* Logical AND */ },
     $or: { /* Logical OR */ },
     $not: { /* Logical NOT */ },
     $nor: { /* Logical NOR */ }
 }
-
-Element Operators
 element_operators: {
     $exists: { /* Checks if a field exists */ },
     $type: { /* Checks the type of a field */ }
 }
-
-Array Operators
 array_operators: {
     $all: { /* Matches arrays that contain all elements */ },
     $elemMatch: { /* Matches arrays that contain at least one element that matches all conditions */ },
     $size: { /* Matches arrays with a specified size */ }
 }
-
-Evaluation Operators
 evaluation_operators: {
     $mod: { /* Modulus operation */ },
     $regex: { /* Regular expression match */ },
     $text: { /* Text search */ },
     $where: { /* JavaScript expression */ }
 }
-
 -$elemmatch {
     The $elemMatch operator matches documents that contain an array field with at least one element that matches all the specified query criteria.
     db.collection.find({
@@ -221,10 +195,7 @@ evaluation_operators: {
         }
     }
 ]);
-
 }
-
-
 db.employees.updateMany(
   { dep: 'eng' },
   { $mul: { salary: 1.1 } }
@@ -233,13 +204,6 @@ db.employees.updateMany(
   { dep: 'eng' },
   { $mul: { salary: 0.9 } }
 );
-
-- redundancy{
-    ensuring data availability and fault tolerance through replication and redundancy mechanisms. 
-    High Availability: Ensures that applications can continue to operate even if individual nodes or components fail.
-    Data Protection: Reduces the risk of data loss by maintaining multiple copies of data across different nodes.
-    Scalability: Supports horizontal scalability by adding more nodes to handle increased load and data volume.
-}
 - view{
     Views in MongoDB are virtual collections that present the results of an aggregation pipeline as if they were documents in a collection.
     They are defined with an aggregation pipeline, which determines how data from existing collections is transformed or aggregated.    

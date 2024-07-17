@@ -1,5 +1,56 @@
 JavaScript Basics
 
+ii want you to make suere 
+
+
+Sure, I'll include your image in the resume. Here's the updated version:
+
+Muhammed Sinan
+Calicut, Kerala, India
+Phone: 8089507749
+Email: muhammedsinan0549@gmail.com
+LinkedIn: linkedin.com/in/muhammed-sinan-1950b3290
+GitHub: github.com/sinanptm
+
+
+Professional Summary
+MERN stack developer from Calicut, India with expertise in MongoDB, Express.js, React.js, and Node.js. Dedicated to writing efficient, modular code and continuously expanding technical knowledge. Experienced in developing scalable web applications and systems through various personal projects. Eager to contribute to innovative projects and collaborate within the tech community.
+
+Education
+High School Diploma
+SNGHSS Chelannur
+Calicut, Kerala, India
+Graduated: 2022
+
+Self-taught programming and web development post-high school.
+
+Skills
+Languages & Frameworks: JavaScript, HTML, CSS, Bootstrap, Tailwind CSS, React.js, Redux.js, Node.js, Express.js, EJS
+Databases: MongoDB, PostgreSQL, MySQL
+Tools & Platforms: AWS, Figma
+Other: Data Structures, Algorithms
+Projects
+TRENDS-Admin
+Developed an admin panel for an e-commerce platform.
+
+Features: Login and dashboard, sales reports, coupon management, product and category management, stock and order management, real-time chat system, and form validation.
+Technologies: HTML, Bootstrap, EJS, JavaScript, Ajax/Fetch, Node.js, Express.js, MongoDB.
+TRENDS
+Built an e-commerce platform specializing in trendy dresses.
+
+Features: User registration and login, multiple address management, wallet functionality, category-based product listing and filtering, dynamic offers, cart and wishlist management, flexible payment options, comprehensive order management, and real-time chat service.
+Technologies: HTML, Bootstrap, EJS, JavaScript, Ajax/Fetch, Node.js, Express.js, MongoDB.
+Source Code: GitHub
+Website: Link
+
+this two are one project two sides of a projecct one is admin side and the other is use side
+
+give this links for vedio of site https://www.linkedin.com/posts/muhammed-sinan-1950b3290_nodejs-mongodb-ecommerce-activity-7169990369466601472-o756?utm_source=share&utm_medium=member_desktop
+for admin side vedio https://www.linkedin.com/posts/muhammed-sinan-1950b3290_nodejs-mongodb-ecommerce-activity-7170297723475152897-4Qbd?utm_source=share&utm_medium=member_desktop
+
+
+trends e commerce and trends admin are one project with two sides 
+
 Const, Let, Var difference{
     const: Block-scoped, immutable reference (for primitives, and can't reassign reference for non-primitive).
     let: Block-scoped, mutable reference
@@ -70,7 +121,7 @@ Event bubbling and capturing{
     event capturing: is the phase in which an event start from outermost element and propogates down to the target element
 }
 Event delegation{
-     By attaching a single event listener to a common ancestor of all the elements you want to handle events for, you can manage events for multiple elements through this one listener. eg: cards.
+    By attaching a single event listener to a common ancestor of all the elements you want to handle events for, you can manage events for multiple elements through this one listener. eg: cards.
 }
 Higher - order functions(HOF) examples[
     HOF are functions that either takes functions as arg or return functions as result.
@@ -279,14 +330,14 @@ Macro Tasks Execution:{
     0,-0
 }
 - mark and sweep*{
-    it is garbage collecting algorithm with two phases marking unused variables and sweepoing it 
+    it is garbage collecting algorithm with two phases marking unused variables and sweeping it 
 }
 - use of Symbol{
     Symbols provide a way to create unique property keys that will not clash with any other keys, 
     return Symbol('one')===Symbol('one') // false
 }
 - JIT{
-    JIT in JavaScript stands for Just-in-Time compilation. It's a technique used by modern JavaScript engines (like V8 in Chrome, SpiderMonkey in Firefox) to optimize the execution of JavaScript code.
+    JIT stands for Just-in-Time compilation. It's a technique used by modern JavaScript engines (V8, SpiderMonkey) to optimize the execution of JavaScript code.
 }
 - Weak Ref{
     strong ref {
