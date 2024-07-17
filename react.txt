@@ -93,7 +93,12 @@ Sibling communication in React{
 }
 
 
-- types of routers
+- types of routers{
+    Memory RouterStores URL changes in memory and doesn’t alter the browser’s address bar. Useful for testing and non-browser environments like React Native.
+    BrowserRouterUtilizes the HTML5 history API for navigation, keeping the UI in sync with the URL without refreshing the page
+    HashRouterUses the hash portion of a URL window.location.hash to sync the UI with the URL. Useful for older browsers that do not support the HTML5 history API.
+}
+
 - portals *
 - Switch
 - useLayoutEffect*

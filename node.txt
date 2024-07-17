@@ -75,6 +75,13 @@ Difference between Worker Thread, Cluster, and Child Process{
     Clusters are multiple instances of the entire Node.js process running separately, suitable for distributing workload across multiple cores or machines.
     Child Processes, are independent processes spawned by a Node.js process, useful for executing external commands or running other applications.
 }
+concurrency vs parallelism{
+    Concurrency: is about managing multiple tasks efficiently, even with a single thread.
+    Node.js excels at concurrency: due to its non-blocking I/O model.
+
+    Parallelism: is about executing multiple tasks truly simultaneously.
+    Node.js can achieve parallelism: through worker threads and the cluster module.
+}
 Types of Streams{
     Streams are a way to handle any kind of end-to-end information exchange in an efficient manner.  like reading writing networking.
     Readable Streams: fs.createReadStream('file.txt');
@@ -142,22 +149,66 @@ Streams and Buffer{
 corn job{
     These are the tasks that run periodically by the operating system. Users can schedule commands the OS will run these commands automatically according to the given time.
 }
+- event emitter {
+    allows you to create, handle, and manage custom events.
+    Events: Named signals that can be emitted by an EventEmitter object and listened for by other parts of the application.
+    Listeners: Functions that are executed when a specific event is emitted.
+}
+- JWT {
+    Header: Contains metadata about the token, such as the type of token and the algorithm used for signing.
+    Payload: Contains the claims, which are the actual statements about the entity and additional data.
+    Signature: Ensures that the token hasn't been altered. It's created by taking the encoded header and payload, a secret key, and the algorithm specified in the header.
+    claims: claims are statements about an entity (typically, the user) and additional data. They are contained in the payload (or body) of the JWT and help to convey information between parties.
+}
+- HTTP Status codes{
+    301 Moved Permanently: Permanent URL change, SEO-friendly.
+    302 Found: Temporary URL change, not for permanent redirection.
+    201 Created: Successful resource creation.
+    401 Unauthorized: Authentication required.
+    400 Bad Request: Malformed request.
+    403 Forbidden: Access denied despite authentication.
 
-- concurrency vs parallelism
-- event emitter 
-- fs.stat
-- JWT claims 
-- HTTP 301 vs 302
-- HTTP 201, 401, 400, 403
-- content types
-- form data content type
-- changing status code of response
-- XSS
-- reverse proxy
-- default port of HTTPS and HTTP
-- basic linux command
-- sudo
-- pm2
-- SSH
-- subdomain
-- DNS
+}
+- content types{
+    text/html: HTML documents
+    text/plain: Plain text
+    application/json: JSON data
+    application/xml: XML data
+    multipart/form-data: form data
+    text/css: CSS stylesheets
+    application/javascript: JavaScript files
+    image/jpeg: JPEG images
+    image/png: PNG images
+}
+- form data content type:  multipart/form-data
+- XSS{
+    Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites.
+}
+- default port of HTTPS and HTTP{
+    HTTP: 80
+    HTTPS: 443
+}
+- reverse proxy{
+    A reverse proxy is a server that sits in front of one or more web servers, intercepting requests from clients and forwarding them to the appropriate backend server. It acts as an intermediary for requests from clients seeking resources from those servers.
+}
+- pm2[
+    PM2 is a production process manager for Node.js applications. It allows you to keep applications alive forever, reload them without downtime, and facilitate common system administration tasks.
+]
+- SSH{
+    Secure Shell (SSH) is a protocol for securely accessing and managing network devices and servers over an unsecured network. It provides a secure channel over an unsecured network using public-key cryptography.
+}
+- subdomain{
+    A subdomain is a domain that is part of a larger domain. Subdomains are used to organize and navigate to different sections of a website.
+    For example, in the domain blog.example.com, blog is the subdomain of example.com
+}
+- DNS{
+    A subdomain is a domain that is part of a larger domain. Subdomains are used to organize and navigate to different sections of a website. For example, in the domain blog.example.com, blog is the subdomain of example.com
+}
+Sudo: Grants specific users administrative privileges for executing commands.
+- basic linux command{
+    File and directory operations: ls, cd, pwd, mkdir, rm, cp, mv.
+    File viewing and editing: cat, less, nano, vim.
+    System information: uname -a, top, df -h, free -h.
+    Networking: ifconfig, ping, curl, wget.
+    Permissions and ownership: chmod, chown.
+}
