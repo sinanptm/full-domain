@@ -91,18 +91,31 @@ Sibling communication in React{
     2- redux state management.
     3- useContext.
 }
-
-
 - types of routers{
     Memory RouterStores URL changes in memory and doesn’t alter the browser’s address bar. Useful for testing and non-browser environments like React Native.
     BrowserRouterUtilizes the HTML5 history API for navigation, keeping the UI in sync with the URL without refreshing the page
     HashRouterUses the hash portion of a URL window.location.hash to sync the UI with the URL. Useful for older browsers that do not support the HTML5 history API.
 }
 
-- portals *
-- Switch
-- useLayoutEffect*
-- reading query params
-- use cases of useRef
-- reading window size
-- polyfills 
+- Portals in React allow rendering children into a DOM node outside the parent component's DOM hierarchy.
+- Switch{
+    Switch component in React Router renders the first matching route.
+    Ensures only one route is rendered at a time.
+}
+- useLayoutEffect{
+    Similar to useEffect, but fires synchronously after all DOM mutations.
+    Use for operations that require layout measurement or DOM updates before the browser paints.
+}
+- reading query params{
+    Extract query parameters from the URL using URLSearchParams.
+}
+- use cases of useRef{
+    Access DOM elements: Directly interact with DOM nodes.
+    Persistent values: Store values that persist across renders without causing re-renders.
+    Hold mutable objects: Maintain mutable objects without triggering re-renders.
+}
+- reading window size: Use window.innerWidth and window.innerHeight to get the current window size.
+- polyfills {
+    Polyfills are code that adds missing features to older browsers.
+    Ensure compatibility with new JavaScript features in older environments.
+}
