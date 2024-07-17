@@ -165,15 +165,15 @@ class LinkedList {
         this.length = 0;
     }
     add(val){
-        let newNoe= new ListNode(val);
+        let newNode= new ListNode(val);
         if (!this.head) {
-            this.head = newNoe
+            this.head = newNode
         } else {
             let cur = this.head;
             while (cur.next) {
                 cur = cur.next;
             }
-            cur.next = newNoe
+            cur.next = newNode
         }
         this.length++;
     }
@@ -190,7 +190,7 @@ class LinkedList {
 
 
 
-// fibunachi in  Dynamic programming(DP)
+// fibonacci in Dynamic programming(DP)
 const fib = (n, memo = {}) => {
     if (n <= 1) return n;
     if (memo[n]) return memo[n];

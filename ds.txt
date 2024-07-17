@@ -24,8 +24,6 @@ hashTable{
         Deletion: O(n)
         Search: O(n) 
     }
-}
-Hash tables: applications, load factor, types of hashing.{
     applications:{
         Fast Data Retrieval : database index storing
         Caching : Memory Caches: Implementations like LRU (Least Recently Used) cache use hash tables for quick access to cached data.
@@ -186,10 +184,19 @@ Stack overflow vs underflow{
     Stack Overflow: Too much data pushed onto the stack.
     Stack Underflow: Attempt to pop data from an empty stack.
 }
-
-- bit vs byte, kilobyte, units of memory
-- heterogeneous array
-- popular hashing algorithms 
+- bit vs byte, kilobyte, units of memory{
+    bit: one 1 or 0.
+    byte: 8 bit
+    kb: 1024 bytes
+    mb: 1024 kb
+    gb: 1024 mb
+    tb: 1024 gb
+    pb: 1024 tb
+}
+- heterogeneous array{
+    A heterogeneous array is an array that can hold elements of different data types.
+    let myArray = [10, "JavaScript", {name: "John"}, function(){console.log("Hello")}];
+}
 - adjacency
 - escape sequence 
 - advantages of static memory
