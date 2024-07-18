@@ -59,7 +59,7 @@ Suspense for data fetching{
 }
 Performance optimization{
     Lazy loading 
-    momoization
+    memoization
     useCallback
     throttling and debouncing
 }

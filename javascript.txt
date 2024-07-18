@@ -40,7 +40,7 @@ Closure{
     a Closure is a function that has access to its own scope and the scope of the outer functions and the global scope.Closure are created whenewher a function are created inside another function it will allow inner function to access the outer function elements such as variables params even after the fininshing the execution of outer function.
 }
 Event loop{
-    Manages the execution of code in a non - blocking way.
+    Manages the execution of code in a non blocking way.
     Handles events like user interactions, timers, and network requests.
     Ensures smooth and responsive user interfaces.
          1. Synchronous Code: Executes immediately in the call stack
@@ -63,7 +63,7 @@ Event loop{
 }
 Promises, async / await, and the difference{
     A promise represents the eventual completion(or failure) of an asynchronous operation
-    async / await is syntactic sugar built on top of promises. It allows writing asynchronous code in a synchronous - like manner, making it easier to read and maintain.
+    async / await is syntactic sugar built on top of promises. It allows writing asynchronous code in a synchronous like manner, making it easier to read and maintain.
 }
 Event bubbling and capturing{
     event bubbling: is the phase in which an event start from the triggered element and propogate to the ancestors.
@@ -72,7 +72,7 @@ Event bubbling and capturing{
 Event delegation{
     By attaching a single event listener to a common ancestor of all the elements you want to handle events for, you can manage events for multiple elements through this one listener. eg: cards.
 }
-Higher - order functions(HOF) examples[
+Higher order functions(HOF) examples[
     HOF are functions that either takes functions as arg or return functions as result.
         eg: arr.map(a => a * 2); 
 ]
@@ -89,7 +89,7 @@ Function borrowing :Call, Apply, Bind {
     Use call() or apply() when you want to borrow a function and use it with different data(context) right now.
     Use bind() when you want to create a new version of a function that is permanently tied to specific data(context) for later use.
     
-    - call : Calls a function with a specified this value and individual arguments.
+    call : Calls a function with a specified this value and individual arguments.
     const person = {
         fullName: function () {
             return this.firstName + " " + this.lastName;
@@ -119,7 +119,7 @@ Function borrowing :Call, Apply, Bind {
     const boundGetX = unboundGetX.bind(ss);
 }
 Error handling{
-    .Try - Catch Blocks:
+    .Try Catch Blocks:
     .  Throwing Errors:
     throw new Error(error message);
     . Asynchronous Error Handling:
@@ -270,7 +270,7 @@ Macro Tasks Execution:{
     UI rendering tasks (in browser)
 }
 
-- falsy values{
+falsy values{
     "" '' 
     false
     null 
@@ -278,17 +278,17 @@ Macro Tasks Execution:{
     Nan
     0,-0
 }
-- mark and sweep*{
+mark and sweep*{
     it is garbage collecting algorithm with two phases marking unused variables and sweeping it 
 }
-- use of Symbol{
+use of Symbol{
     Symbols provide a way to create unique property keys that will not clash with any other keys, 
     return Symbol('one')===Symbol('one') // false
 }
-- JIT{
+JIT{
     JIT stands for Just-in-Time compilation. It's a technique used by modern JavaScript engines (V8, SpiderMonkey) to optimize the execution of JavaScript code.
 }
-- Weak Ref{
+Weak Ref{
     strong ref {
         let obj = {}
         let w = obj;
@@ -305,13 +305,13 @@ Macro Tasks Execution:{
         // At this point, 'obj' can be garbage collected and the entry in 'weakMap' will be removed
     }
 }
-- structuredClone{
-    - Returns a deep copy of the provided value.
-    - Handles More Data Types: structuredClone can handle more complex data types like Map, Set, Date, RegExp, ArrayBuffer, TypedArray, etc.,
+structuredClone{
+    Returns a deep copy of the provided value.
+    Handles More Data Types: structuredClone can handle more complex data types like Map, Set, Date, RegExp, ArrayBuffer, TypedArray, etc.,
         which JSON.parse(JSON.stringify(obj)) cannot.
-    - Functions and Symbols: structuredClone cannot clone functions and symbols. If these are present in the object being cloned, they will be omitted in the clone.
+    Functions and Symbols: structuredClone cannot clone functions and symbols. If these are present in the object being cloned, they will be omitted in the clone.
 }
-- labels{
+labels{
     const matrix = [
         [1, 2, 3],
         [4, 5, 6],
@@ -329,7 +329,7 @@ Macro Tasks Execution:{
     Skipping Iterations in Nested Loops: Labels can also help skip iterations in nested loops, allowing you to jump to the next iteration of an outer loop when needed.
     The continue statement can be used with labels to skip the current iteration of a labeled loop and continue with the next iteration of the labeled loop.
 }
-- making object immutable{
+making object immutable{
     Object.freeze(){
         prevents new properties from being added to an object, existing properties from being removed, and existing properties from being changed.
         it does not make nested objects immutable.
@@ -338,18 +338,18 @@ Macro Tasks Execution:{
          prevents new properties from being added and existing properties from being removed, but allows modification of existing properties.
     }
 }
-- Promise.allSettled {
+Promise.allSettled {
     Promise.allSettled() is a method that returns a promise that resolves after all of the given promises have either resolved or rejected. It returns an array of objects that each describe the outcome of each promise.
     promise.all will wait for all promises to resolve and promise.allSettled will wait for all promises to either reject or resolve.
 }
-- eval(){
+eval(){
     eval() function in Js is a built-in function that evaluates a string as Js code and executes it. While eval() can be powerful and flexible,
     it is generally considered dangerous and should be used with caution due to potential security risks and performance issues.
     let expression = '3 * 4 + 2';
     let result = eval(expression); // Evaluates the expression
     console.log(result); // 14
 }
-- custom errors {
+custom errors {
     class DatabaseError extends Error {
     constructor(message, code) {
         super(message);
@@ -371,18 +371,18 @@ Macro Tasks Execution:{
         console.log(error.stack); // Stack trace
     }
 }
-- sum of digits in a number (without using string){
+sum of digits in a number (without using string){
     const getSum = num =>{
         num = Math.abs(num)
         if(num===0)return num
         return (num%10) + getSum(Math.floor(num/10))
     }
 }
-- RegExp{ // used to match patterns and all
+RegExp{ // used to match patterns and all
     const regex = /pattern/flags;
     const regex = new RegExp('pattern', 'flags');
 }
-- merge two objects but don’t replace existing keys{
+merge two objects but don’t replace existing keys{
     mergeObjects = (target,source)=>{
         for (const key in source) {
             if (!(key in target)) {
@@ -392,9 +392,6 @@ Macro Tasks Execution:{
         return target
     }
 }
-- date formatting
-
-
-
-
-
+- date formatting{
+    new Date(year,month,day,hours,minutes,seconds,ms)
+}

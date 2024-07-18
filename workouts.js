@@ -203,3 +203,12 @@ const mergeObjects = (obj1,obj2)=>{
     }
     return obj1
 }
+
+const shuffle = arr => {
+    for (let i = 0; i < arr.length; i++) {
+      const random = Math.floor(Math.random() * (i+1) );
+      [arr[random], arr[i]] = [arr[i], arr[random]];
+    }
+    return arr;
+  }
+console.log(shuffle(arr));

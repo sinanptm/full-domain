@@ -1,4 +1,4 @@
-
+=
 Other Topics
 
 Authentication vs Authorization{
@@ -105,7 +105,9 @@ subdomain{
 DNS{
     A subdomain is a domain that is part of a larger domain. Subdomains are used to organize and navigate to different sections of a website. For example, in the domain blog.example.com, blog is the subdomain of example.com
 }
-Sudo: Grants specific users administrative privileges for executing commands.
+Sudo: {
+    Grants specific users administrative privileges for executing commands.
+}
 basic linux command{
     File and directory operations: ls, cd, pwd, mkdir, rm, cp, mv.
     File viewing and editing: cat, less, nano, vim.

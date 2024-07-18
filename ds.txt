@@ -41,17 +41,29 @@ height balanced tree{
 Complete Binary Tree:{
     The last level of the tree is filled from left to right without any gaps.
     Incomplete levels are filled from left to right.
+    Level 1:       1
+                  / \
+    Level 2:    2     3
+               / \   /
+    Level 3:  4   5 6
+
 }
 Full Binary Tree:{
     Every node has either zero children (leaf nodes) or two children (internal nodes).
-    No nodes have only one child.    
+    No nodes have only one child.   
+    Level 1:       1
+                  / \
+    Level 2:    2     3
+               / \   / \
+    Level 3:  4   5 6   7
+
 }
 Perfect Binary Tree:{
     All levels of the tree are fully filled.
     All leaf nodes are at the same level.
 }
 red-black vs avl{
-    either of them are trees with a balanced hight.  
+    these are trees with a balanced hight.  
     O(log n) time complexity for insertion, deletion, and lookup operations.
     we can see wether a tree is balanced or not using balance factor
 
@@ -184,7 +196,7 @@ Stack overflow vs underflow{
     Stack Overflow: Too much data pushed onto the stack.
     Stack Underflow: Attempt to pop data from an empty stack.
 }
-- bit vs byte, kilobyte, units of memory{
+bit vs byte, kilobyte, units of memory{
     bit: one 1 or 0.
     byte: 8 bit
     kb: 1024 bytes
@@ -193,15 +205,32 @@ Stack overflow vs underflow{
     tb: 1024 gb
     pb: 1024 tb
 }
-- heterogeneous array{
+heterogeneous array{
     A heterogeneous array is an array that can hold elements of different data types.
     let myArray = [10, "JavaScript", {name: "John"}, function(){console.log("Hello")}];
 }
-- adjacency
-- escape sequence 
-- advantages of static memory
-- circular reference
-- mutual recursion*
-- shuffle an array
-- height of BST
+adjacency{
+    a data structure that represents the relationships between vertices in a graph
+    Adjacency list{
+        A collection of unordered lists that describe the neighbors of each vertex in a graph.
+    }
+    Adjacency matrix{
+        A matrix with rows and columns that represent a graph. The values in the matrix are 0 or 1, depending on whether or not two vertices are adjacency
+    }
+}
+mutual recursion{
+    function isEven(n) {
+      if (n === 0) {
+        return true;
+      }
+      return isOdd(n - 1);
+    }
 
+    function isOdd(n) {
+      if (n === 0) {
+        return true;
+      }
+      return isEven(n - 1);
+    }
+}
+advantages of static memory

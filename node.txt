@@ -103,9 +103,9 @@ Request and response headers{
      req:
         GET /index.html HTTP/1.1
         Host: www.example.com
-        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
+        User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (HTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36
         Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
-        cookies:weqwhuhkajsdjasiodhqwodwqheo
+        cookies:weqwhuhkajsdjasiodhqwodwqheodadf
     res:
         HTTP/1.1 200 OK
         Date: Wed, 07 Jul 2024 12:00:00 GMT
@@ -149,7 +149,7 @@ Streams and Buffer{
 corn job{
     These are the tasks that run periodically by the operating system. Users can schedule commands the OS will run these commands automatically according to the given time.
 }
-- event emitter {
+event emitter {
     allows you to create, handle, and manage custom events.
     Events: Named signals that can be emitted by an EventEmitter object and listened for by other parts of the application.
     Listeners: Functions that are executed when a specific event is emitted.
