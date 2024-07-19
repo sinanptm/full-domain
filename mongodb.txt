@@ -82,6 +82,9 @@ indexes: {
         Can enforce uniqueness on a field, ensuring data integrity.
     }
 }
+geospatial index{
+    A geospatial index in MongoDB is a special type of index that allows for efficient querying of geographic data, such as locations defined by latitude and longitude. This type of index is useful for applications involving maps, location-based services, and geographic data analysis.
+}
 Capped Collections: {
     special type of collection with a fixed size that provide high-throughput operations by maintaining insert order.
     Fixed size, high-throughput insert operations, maintains the order of insertion.
@@ -204,18 +207,18 @@ db.employees.updateMany(
   { dep: 'eng' },
   { $mul: { salary: 0.9 } }
 );
-- view{
+view{
     Views in MongoDB are virtual collections that present the results of an aggregation pipeline as if they were documents in a collection.
     They are defined with an aggregation pipeline, which determines how data from existing collections is transformed or aggregated.    
 }
-- explain(){
+explain(){
     explain() method provides information about the query execution plan and statistics, which can help analyze and optimize query performance
     db.employees.find().explain()
 }
-- fulltext search{
+fulltext search{
     Full-text search in MongoDB allows you to perform text-based searches across string fields in your documents. 
 }
-- $out{
+$out{
     for storing the results of complex aggregation pipelines into collections,
     db.sourceCollection.aggregate([
       { $match: { status: "active" } },
@@ -223,11 +226,17 @@ db.employees.updateMany(
       { $out: "summaryCollection" }
     ]);
 }
-- each skill and the number {
+each skill and the number {
     db.employees.aggregate([{$unwind:"$skills"},{$group:{_id:"$skills",count:{$sum:1}}}])
 }
-- developers who know more than 4 skills {
+developers who know more than 4 skills {
     db.employees.aggregate([{$project:{name:1,numOfSkills:{$size:"$skills"}}},{$match:{numOfSkills:{$gte:3}}}])
 }
-- geospatial index
-- limiting size of collection
+limiting size of collection{
+    db.createCollection("log", {
+      capped: true,
+      size: 5242880,  // Size limit in bytes (e.g., 5MB)
+      max: 5000       // Maximum number of documents (optional)
+    })
+
+}

@@ -102,7 +102,7 @@ const insertionSort = arr => {
 
 const quickSort = (arr) => {
     if (arr.length <= 1) {
-      return arr;
+        return arr;
     }
 
     let pivot = arr[0];
@@ -110,15 +110,16 @@ const quickSort = (arr) => {
     let rightArr = [];
 
     for (let i = 1; i < arr.length; i++) {
-      if (arr[i] < pivot) {
-        leftArr.push(arr[i]);
-      } else {
-        rightArr.push(arr[i]);
-      }
+        if (arr[i] < pivot) {
+            6
+            leftArr.push(arr[i]);
+        } else {
+            rightArr.push(arr[i]);
+        }
     }
 
     return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
-  };
+};
 
 
 // ______________________________________________________________
@@ -150,19 +151,19 @@ function merge(left, right) {
 
 
 class ListNode {
-    constructor(val,next){
-        this.val = val??null;
-        this.next = next??null;
+    constructor(val, next) {
+        this.val = val ?? null;
+        this.next = next ?? null;
     }
 }
 
 class LinkedList {
-    constructor(){
+    constructor() {
         this.head = null;
         this.length = 0;
     }
-    add(val){
-        let newNode= new ListNode(val);
+    add(val) {
+        let newNode = new ListNode(val);
         if (!this.head) {
             this.head = newNode
         } else {
@@ -174,7 +175,7 @@ class LinkedList {
         }
         this.length++;
     }
-    get(){
+    get() {
         let res = []
         let cur = this.head
         while (cur) {
@@ -195,9 +196,9 @@ const fib = (n, memo = {}) => {
     return memo[n];
 }
 
-const mergeObjects = (obj1,obj2)=>{
+const mergeObjects = (obj1, obj2) => {
     for (const key in obj2) {
-        if(!(key in obj1)){
+        if (!(key in obj1)) {
             obj1[key] = obj2[key]
         }
     }
@@ -206,9 +207,15 @@ const mergeObjects = (obj1,obj2)=>{
 
 const shuffle = arr => {
     for (let i = 0; i < arr.length; i++) {
-      const random = Math.floor(Math.random() * (i+1) );
-      [arr[random], arr[i]] = [arr[i], arr[random]];
+        const random = Math.floor(Math.random() * (i + 1));
+        [arr[random], arr[i]] = [arr[i], arr[random]];
     }
     return arr;
-  }
-console.log(shuffle(arr));
+}
+
+(function () {
+    const today = new Date();
+    const tomorrow = new Date();
+    tomorrow.setDate(today.getDate() + 1);
+    console.log(tomorrow.toLocaleDateString());
+})()

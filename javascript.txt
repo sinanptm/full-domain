@@ -278,9 +278,6 @@ falsy values{
     Nan
     0,-0
 }
-mark and sweep*{
-    it is garbage collecting algorithm with two phases marking unused variables and sweeping it 
-}
 use of Symbol{
     Symbols provide a way to create unique property keys that will not clash with any other keys, 
     return Symbol('one')===Symbol('one') // false

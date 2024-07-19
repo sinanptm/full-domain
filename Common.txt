@@ -19,7 +19,6 @@ Local storage vs Session storage{
         Data is only accessible within the same tab or window.
         Different tabs or windows will have separate session storage, even if they are from the same origin.
     }
-
 }
 BOM (Browser Object Model):{
     The Browser Object Model (BOM) is a collection of objects provided by the browser to interact with the web page and its environment. 

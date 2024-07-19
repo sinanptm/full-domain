@@ -109,6 +109,9 @@ Memory management and garbage collection{
     Automatic Allocation: Memory is allocated for objects and variables as needed during program execution.
     Garbage Collection: JavaScript engines employ sophisticated garbage collection algorithms (e.g., generational garbage collection) to reclaim memory occupied by objects that are no longer reachable, optimizing memory usage and performance.
 }
+mark and sweep*{
+    it is garbage collecting algorithm with two phases marking unused variables and sweeping it 
+}
 graph{
     a graph is a data structure that consists of a set of vertices (also called nodes) and a set of edges connecting pairs of vertices
     degree of node:  the degree of a node (or vertex) in a graph is the number of edges connected to it.
@@ -150,16 +153,26 @@ Minimum Spanning Tree (MST){
         prims's algorithm
     }
 }
+adjacency{
+    a data structure that represents the relationships between vertices in a graph
+    Adjacency list{
+        A collection of unordered lists that describe the neighbors of each vertex in a graph.
+    }
+    Adjacency matrix{
+        A matrix with rows and columns that represent a graph. The values in the matrix are 0 or 1, depending on whether or not two vertices are adjacency
+    }
+}
 weighted graph{
     A weighted graph is a type of graph where each connection (edge) between points (vertices) has a number (weight) associated with it. This number could represent things like distance, cost, time,
     or any other measure that makes sense for the problem you're working on.
+    Dijkstra's algorithm is a commonly used method to find the shortest path between two nodes in a weighted graph
 }
 complexity of graph operations{
-    Traversal (BFS, DFS): O(V + E), where V is the number of verdtices and E is the number of edges. This is because each vertex and edge are visited once.
+    Traversal (BFS, DFS): O(V + E), where V is the number of vertices and E is the number of edges. This is because each vertex and edge are visited once.
     Finding neighbors of a vertex: O(degree of the vertex), where the degree is the number of edges connected to the vertex. In the worst case, it can be O(V).
     Checking if an edge exists: O(degree of the vertex) in the worst case.
 }
-head {
+Heap {
     Heaps are specialized tree-based data structures that satisfy the heap property.
     Heapify is the process of creating a heap data structure from a binary tree
     Max-Heap:{
@@ -209,15 +222,6 @@ heterogeneous array{
     A heterogeneous array is an array that can hold elements of different data types.
     let myArray = [10, "JavaScript", {name: "John"}, function(){console.log("Hello")}];
 }
-adjacency{
-    a data structure that represents the relationships between vertices in a graph
-    Adjacency list{
-        A collection of unordered lists that describe the neighbors of each vertex in a graph.
-    }
-    Adjacency matrix{
-        A matrix with rows and columns that represent a graph. The values in the matrix are 0 or 1, depending on whether or not two vertices are adjacency
-    }
-}
 mutual recursion{
     function isEven(n) {
       if (n === 0) {
@@ -233,4 +237,11 @@ mutual recursion{
       return isEven(n - 1);
     }
 }
-advantages of static memory
+Static Memory Allocation{
+    Advantages: Efficient, predictable, simple.
+    Disadvantages: Inflexible, potentially wasteful, limited scope.
+}
+Dynamic Memory Allocation{
+    Advantages: Flexible, efficient use of memory, better scope management.
+    Disadvantages: Performance overhead, fragmentation, error-prone, unpredictable availability.
+}
