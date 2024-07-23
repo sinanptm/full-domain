@@ -114,3 +114,9 @@ basic linux command{
     Networking: ifconfig, ping, curl, wget.
     Permissions and ownership: chmod, chown.
 }
+idempotency{
+     An API call or operation is idempotent if it has the same result no matter how many times it's applied. That is, an idempotent operation provides protection against accidental duplicate calls causing unintended consequences.
+}
+
+
+ 

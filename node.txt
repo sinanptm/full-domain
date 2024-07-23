@@ -154,3 +154,30 @@ event emitter {
     Events: Named signals that can be emitted by an EventEmitter object and listened for by other parts of the application.
     Listeners: Functions that are executed when a specific event is emitted.
 }
+middleware to log all parameter names {
+    const logParams = (req, res, next) => {
+        console.log('Query Parameters:', Object.keys(req.query));
+        console.log('Route Parameters:', Object.keys(req.params));
+        console.log('Body Parameters:', Object.keys(req.body));
+        next(); 
+    };
+}
+
+
+content negotiation, 
+web api vs rest api, 
+- CommonJS
+- express.urlencoded
+- user agent
+- HTTP 401, 403, 201
+- downsides of localStorage
+- refresh toen
+- base64*
+- cluster
+- changing status code of a response
+- reverse proxy
+- DNS
+- pm2
+- default HTTP port
+- sudo
+- SSH

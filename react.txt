@@ -20,7 +20,6 @@ useCallback{
     const increment = useCallback(() => {
         setCount(count + 1);
     }, [count]);
-
 }
 Hooks rules and conditional rendering{
 🔴 Only call Hooks at the top level
@@ -36,9 +35,6 @@ Context API vs Redux{
     context api It's a good choice for small to medium-sized applications that don't require complex state management.
     redux  better choice for large and complex applications that require more advanced state management features. Redux can make it easier to debug and reason about your application's state
 }
-React Router
-Lazy loading
-Error boundaries
 Synthetic events vs native events{
     native {
         onclick, onmouseover, onchange
@@ -92,7 +88,7 @@ Sibling communication in React{
     3- useContext.
 }
 types of routers{
-    Memory RouterStores URL changes in memory and doesn’t alter the browser’s address bar. Useful for testing and non-browser environments like React Native.
+    Memory Router stores URL changes in memory and doesn’t alter the browser’s address bar. Useful for testing and non-browser environments like React Native.
     BrowserRouterUtilizes the HTML5 history API for navigation, keeping the UI in sync with the URL without refreshing the page
     HashRouterUses the hash portion of a URL window.location.hash to sync the UI with the URL. Useful for older browsers that do not support the HTML5 history API.
 }
@@ -113,9 +109,23 @@ use cases of useRef{
     Access DOM elements: Directly interact with DOM nodes.
     Persistent values: Store values that persist across renders without causing re-renders.
     Hold mutable objects: Maintain mutable objects without triggering re-renders.
+    Integrating with Third-Party Libraries
 }
 polyfills {
     Polyfills are code that adds missing features to older browsers.
     Ensure compatibility with new JavaScript features in older environments.
 }
-reading window size: Use window.innerWidth and window.innerHeight to get the current window size.
+reading window size: Use window.innerWidth and window.innerHeight to get the current window size.{
+    const App = () => {
+      const handleContextMenu = (event) => {
+        event.preventDefault();
+      };
+    
+      return (
+        <div onContextMenu={handleContextMenu}>
+          <h1>Right Click Disabled Here</h1>
+          <p>Right-clicking anywhere in this div will not show the context menu.</p>
+        </div>
+      );
+    };
+}

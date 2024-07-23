@@ -118,15 +118,6 @@ Function borrowing :Call, Apply, Bind {
     const unboundGetX = module.getX;
     const boundGetX = unboundGetX.bind(ss);
 }
-Error handling{
-    .Try Catch Blocks:
-    .  Throwing Errors:
-    throw new Error(error message);
-    . Asynchronous Error Handling:
-    promise()
-        .then()
-        .catch(err)
-};
 IIFE(Immediately Invoked Function Expression){
     Avoiding Global Scope Pollution
     Encapsulation
@@ -247,7 +238,7 @@ Generators and iterators{
     Generators are functions that can be paused and resumed, yielding multiple values over time.
 }
 memoization {
-    invloves caching the results of expensive function calls and reusing result when same input accuers
+    involves caching the results of expensive function calls and reusing result when same input accures
 }
 window{
     it provide access to access to the browser apis : dom, fetch, local storage
@@ -269,7 +260,6 @@ Macro Tasks Execution:{
     I/O operations (like file read/write)
     UI rendering tasks (in browser)
 }
-
 falsy values{
     "" '' 
     false
@@ -295,7 +285,7 @@ Weak Ref{
     }
     week ref {
         let weakMap = new WeakMap();
-        let obj = { name: "Alice" };
+        let obj = { name: "Alice" Handles};
         weakMap.set(obj, "some value");
         // The 'obj' can still be garbage collected if there are no other strong references to it
         obj = null; // Removing the strong reference
@@ -304,7 +294,7 @@ Weak Ref{
 }
 structuredClone{
     Returns a deep copy of the provided value.
-    Handles More Data Types: structuredClone can handle more complex data types like Map, Set, Date, RegExp, ArrayBuffer, TypedArray, etc.,
+     More Data Types: structuredClone can handle more complex data types like Map, Set, Date, RegExp, ArrayBuffer, TypedArray, etc.,
         which JSON.parse(JSON.stringify(obj)) cannot.
     Functions and Symbols: structuredClone cannot clone functions and symbols. If these are present in the object being cloned, they will be omitted in the clone.
 }
@@ -346,6 +336,22 @@ eval(){
     let result = eval(expression); // Evaluates the expression
     console.log(result); // 14
 }
+Error handling{
+    .Try Catch Blocks:
+    .  Throwing Errors:
+    throw new Error(error message);
+    . Asynchronous Error Handling:
+    promise()
+        .then()
+        .catch(err)
+};
+RegExp{ // used to match patterns and all
+    const regex = /pattern/flags;
+    const regex = new RegExp('pattern', 'flags');
+}
+
+
+
 custom errors {
     class DatabaseError extends Error {
     constructor(message, code) {
@@ -375,10 +381,6 @@ sum of digits in a number (without using string){
         return (num%10) + getSum(Math.floor(num/10))
     }
 }
-RegExp{ // used to match patterns and all
-    const regex = /pattern/flags;
-    const regex = new RegExp('pattern', 'flags');
-}
 merge two objects but don’t replace existing keys{
     mergeObjects = (target,source)=>{
         for (const key in source) {
@@ -389,6 +391,34 @@ merge two objects but don’t replace existing keys{
         return target
     }
 }
-- date formatting{
+date formatting{
     new Date(year,month,day,hours,minutes,seconds,ms)
+
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    console.log(tomorrow.toLocaleDateString());
 }
+reduce - sum of positive numbers in mixed array{
+    const sumOfPositiveNumbers = mixedArray.reduce((acc, cur) => {
+      if (typeof cur === 'number' && cur > 0) {
+        return acc + cur;
+      }
+      return acc;
+    }, 0);
+}
+countdown timer that ticks from 10 to 0{
+    let count =10
+    const timer = setInterval(()=>{
+        console.log(count);
+        if (count===0) {
+            clearInterval(timer)
+        }else{
+            count--
+        }
+    },1000)
+}
+Proxy object : A powerful feature for intercepting and redefining operations on objects or functions.
+
+
+
+

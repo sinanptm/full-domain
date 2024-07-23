@@ -213,9 +213,12 @@ const shuffle = arr => {
     return arr;
 }
 
-(function () {
-    const today = new Date();
-    const tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1);
-    console.log(tomorrow.toLocaleDateString());
-})()
+
+
+const getSum = num => {
+    num = Math.abs(num)
+    if (num === 0) return num
+    return (num % 10) + getSum(Math.floor(num / 10))
+}
+
+

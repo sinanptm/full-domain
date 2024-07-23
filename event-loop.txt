@@ -10,7 +10,7 @@ Worker Threads: For CPU-intensive tasks, such as heavy computations or large fil
 allowing you to offload heavy tasks and keep the main thread responsive. Worker threads are part of the worker_threads module.
 
 Child Processes: For tasks that require running separate processes, like executing a command or running a script, you can use the child_process module.-
- This is useful for tasks that can benefit from being isolated from the main Node.js process, like video encoding or other heavy operations.
+This is useful for tasks that can benefit from being isolated from the main Node.js process, like video encoding or other heavy operations.
 
 Cluster Module: To handle a high number of requests, you can use the cluster module to fork multiple instances of your application. Each instance (worker) runs on a different CPU core, -
 distributing the load and improving performance. The cluster module helps you utilize the full power of a multi-core system.

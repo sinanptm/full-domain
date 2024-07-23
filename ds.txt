@@ -245,3 +245,16 @@ Dynamic Memory Allocation{
     Advantages: Flexible, efficient use of memory, better scope management.
     Disadvantages: Performance overhead, fragmentation, error-prone, unpredictable availability.
 }
+
+
+
+remove adjacent odd elements from an array - incorrect logic, 
+complexity, 
+pros and cons of linked list - learn more,
+
+- Dijkstra’s algorithm*
+- rehashing 
+- typed arrays*
+- disadvantages of dynamic memory
+- extract digits from string 
+- shuffle array
