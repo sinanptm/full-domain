@@ -1,4 +1,3 @@
-=
 Other Topics
 
 Authentication vs Authorization{
@@ -9,15 +8,12 @@ Authentication vs Authorization{
 Local storage vs Session storage{
     Local storage and session storage are both part of the Web Storage API
     Local Storage{
-        Data in local storage persists even after the browser is closed and reopened.
-        Data is stored until explicitly deleted by the user or through JavaScript.
-        Data is shared across all tabs and windows with the same origin (domain).
+        localStorage will be available for any tab or window in the browser, and will exist until it is deleted by the user or the program.
+         Unlike a cookie, you cannot setup expiration. localStorage has a much larger storage limit as well.
     }
     Session Storage{
-        Data in session storage is only available for the duration of the page session.
-        Data is cleared when the page session ends, which happens when the browser or tab is closed.
-        Data is only accessible within the same tab or window.
-        Different tabs or windows will have separate session storage, even if they are from the same origin.
+        sessionStorage is only for that browser tab's session. If you close the tab, the session will be lost and the data will be lost too,
+         it's similar to a session variable on any backend language.
     }
 }
 BOM (Browser Object Model):{
@@ -102,12 +98,12 @@ subdomain{
     For example, in the domain blog.example.com, blog is the subdomain of example.com
 }
 DNS{
-    A subdomain is a domain that is part of a larger domain. Subdomains are used to organize and navigate to different sections of a website. For example, in the domain blog.example.com, blog is the subdomain of example.com
-}
-Sudo: {
-    Grants specific users administrative privileges for executing commands.
+    The Domain Name System (DNS) is the phone book of the Internet. Humans access information online through domain names,
+     like nyTimes.com or espn.com. Web browsers interact through Internet Protocol (IP) addresses.
+      DNS translates domain names to IP addresses so browsers can load Internet resources.
 }
 basic linux command{
+    Sudo : Grants specific users administrative privileges for executing commands.
     File and directory operations: ls, cd, pwd, mkdir, rm, cp, mv.
     File viewing and editing: cat, less, nano, vim.
     System information: uname -a, top, df -h, free -h.
@@ -117,6 +113,3 @@ basic linux command{
 idempotency{
      An API call or operation is idempotent if it has the same result no matter how many times it's applied. That is, an idempotent operation provides protection against accidental duplicate calls causing unintended consequences.
 }
-
-
- 

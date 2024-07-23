@@ -48,7 +48,7 @@ Child process (spawn and fork and exec){
         for creating nodejs processes, it establish a ipc cummunicaiton chanel .
 
     exec // for shell commands
-        suitable for executing shell cammands where you need the intere result of proccess.
+        suitable for executing shell commants where you need the inter result of proccess.
 }
 Cluster and worker threads{
     Worker Threads{
@@ -162,22 +162,10 @@ middleware to log all parameter names {
         next(); 
     };
 }
-
-
-content negotiation, 
-web api vs rest api, 
-- CommonJS
-- express.urlencoded
-- user agent
-- HTTP 401, 403, 201
-- downsides of localStorage
-- refresh toen
-- base64*
-- cluster
-- changing status code of a response
-- reverse proxy
-- DNS
-- pm2
-- default HTTP port
-- sudo
-- SSH
+content negotiation{
+    Content negotiation in Node.js allows your server to serve different representations of the same resource based on the client's preferences.
+     This can be useful for providing different formats like JSON, XML, or HTML depending on what the client can handle.
+}
+web api vs rest api{
+    REST APIs use a client-server architecture, while Web APIs use MVC architecture.
+}
