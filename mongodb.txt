@@ -83,7 +83,8 @@ indexes: {
     }
 }
 geospatial index{
-    A geospatial index in MongoDB is a special type of index that allows for efficient querying of geographic data, such as locations defined by latitude and longitude. This type of index is useful for applications involving maps, location-based services, and geographic data analysis.
+    A geospatial index in MongoDB is a special type of index that allows for efficient querying of geographic data, such as locations defined by latitude and longitude.
+     This type of index is useful for applications involving maps, location-based services, and geographic data analysis.
 }
 Capped Collections: {
     special type of collection with a fixed size that provide high-throughput operations by maintaining insert order.
@@ -241,15 +242,5 @@ limiting size of collection{
 
 }
 
-drawbacks of indexing, 
-covered query, 
-$pop vs $pull, 
-upsert query, 
-learn regex patterns, 
-- Isolation
-- redundancy
-- TTL index
-- namespace
-- view
-- decrease salary by 10% if developer doesn’t know HTML
+learn regex patterns, '
 - total salary of employees who aren’t referred ($exists)

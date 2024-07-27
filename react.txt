@@ -85,7 +85,7 @@ Redux Thunk vs Redux Saga{
 Sibling communication in React{
     1- prop drilling.
     2- redux state management.
-    3- useContext.
+    3- useContext.   
 }
 types of routers{
     Memory Router stores URL changes in memory and doesn’t alter the browser’s address bar. Useful for testing and non-browser environments like React Native.

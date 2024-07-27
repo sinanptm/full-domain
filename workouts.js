@@ -39,6 +39,7 @@ const binarySearch = (arr, target) => {
         if (arr[middle] < target) right = middle - 1
         else left = middle + 1
     }
+    return -1;
 }
 
 // ______________________________________________________________
@@ -111,7 +112,6 @@ const quickSort = (arr) => {
 
     for (let i = 1; i < arr.length; i++) {
         if (arr[i] < pivot) {
-            6
             leftArr.push(arr[i]);
         } else {
             rightArr.push(arr[i]);
@@ -188,7 +188,6 @@ class LinkedList {
 
 
 
-// fibonacci in Dynamic programming(DP)
 const fib = (n, memo = {}) => {
     if (n <= 1) return n;
     if (memo[n]) return memo[n];
@@ -218,7 +217,19 @@ const shuffle = arr => {
 const getSum = num => {
     num = Math.abs(num)
     if (num === 0) return num
-    return (num % 10) + getSum(Math.floor(num / 10))
+    return num % 10 + getSum(Math.floor(num / 10))
+}
+
+
+
+const neste = [23,[3,3,32,2],[[112,21],12,],123]
+
+// reversing nested array
+const reverse = nestedArray  =>{
+    if(!Array.isArray(nestedArray))return nestedArray;
+    nestedArray = nestedArray.reverse();
+    nestedArray = nestedArray.map(el=>reverse(el));
+    return nestedArray
 }
 
 
