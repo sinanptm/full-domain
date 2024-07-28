@@ -1,4 +1,17 @@
-const arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
+
+var randomObjArray = [
+    { a: [1, 2, 5 ], b: 12 },
+    { ba: [1, 2, 5 ], ss: 12 },
+    { aw: [1, 2, 5 ], qw: 12 }
+];
+var nestedArray = [23, [3, 3, 32, 2], [[112, 21], 12,], 123]
+var arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
+var objArray = [
+    { a: [1, 2, 5 ], b: 12 },
+    { a: [1, 2, 5 ], b: 12 },
+    { a: [1, 2, 5 ], b: 12 }
+];
+
 // ! reverse stack using recursion 
 const insertAtBottom = (stack, element) => {
     if (stack.length === 0) {
@@ -49,7 +62,7 @@ const reqersieveBinarySearch = (arr, target, left = 0, right = arr.length - 1) =
     const middle = Math.floor((left + right) / 2);
     if (arr[middle] === target) return middle;
     if (target > arr[middle]) return reqersieveBinarySearch(arr, target, middle + 1, right)
-    else return reqersieveBinarySearch(arr, target, left, middle - 1)
+        else return reqersieveBinarySearch(arr, target, left, middle - 1)
 }
 
 // ______________________________________________________________
@@ -83,9 +96,9 @@ const selectionSort = arr => {
             }
         }
         [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
-
+        
     }
-
+    
     return console.log('Selction Sort', arr);
 }
 // ______________________________________________________________
@@ -105,11 +118,11 @@ const quickSort = (arr) => {
     if (arr.length <= 1) {
         return arr;
     }
-
+    
     let pivot = arr[0];
     let leftArr = [];
     let rightArr = [];
-
+    
     for (let i = 1; i < arr.length; i++) {
         if (arr[i] < pivot) {
             leftArr.push(arr[i]);
@@ -117,7 +130,7 @@ const quickSort = (arr) => {
             rightArr.push(arr[i]);
         }
     }
-
+    
     return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 };
 
@@ -128,7 +141,7 @@ const mergeSort = arr => {
     if (arr.length <= 1) {
         return arr;
     }
-
+    
     const middle = Math.floor(arr.length / 2);
     const left = arr.slice(0, middle);
     const right = arr.slice(middle);
@@ -178,14 +191,13 @@ const getSum = num => {
     num = Math.abs(num)
     if (num === 0) return num
     return num % 10 + getSum(Math.floor(num / 10))
-}
+};
 
-const neste = [23, [3, 3, 32, 2], [[112, 21], 12,], 123]
 
-const reverse = nestedArray => {
+const reverseNestedArray = nestedArray => {
     if (!Array.isArray(nestedArray)) return nestedArray;
     nestedArray = nestedArray.reverse();
-    nestedArray = nestedArray.map(el => reverse(el));
+    nestedArray = nestedArray.map(el => reverseNestedArray(el));
     return nestedArray
 };
 
@@ -201,17 +213,6 @@ const sumOfNestedArray = arr => {
     })
     return total
 }
-
-
-(function (num = 5) {
-    for (let i = 1; i <= num; i++) {
-        let str = ''
-        for (let j = 1; j <= i; j++) {
-
-        }
-    }
-})()
-
 
 const print = n => {
     function product(n) {
@@ -233,4 +234,31 @@ const print = n => {
         str += ` = ${product(i)}`;
         console.log(str);
     }
+}
+
+
+
+const sumOfObjArray = arr => {
+    let sum = 0;
+    arr.forEach(el => {
+        sum += el.a.reduce((acc, cur) => acc + cur);
+        sum += el.b
+    })
+    return sum;
+};
+
+
+
+const sumOfRandomObjArray = arr=>{
+    let sum = 0;
+    arr.forEach(el=>{
+        Object.values(el).forEach(val=>{
+            if(Array.isArray(val)){
+                sum+=val.reduce((total,cur)=>total+cur)
+            }else{
+                sum+=val
+            }
+        });
+    })
+    return sum;
 }
