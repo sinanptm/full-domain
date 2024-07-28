@@ -148,46 +148,6 @@ function merge(left, right) {
     return [...res, ...left, ...right]
 }
 
-
-
-class ListNode {
-    constructor(val, next) {
-        this.val = val ?? null;
-        this.next = next ?? null;
-    }
-}
-
-class LinkedList {
-    constructor() {
-        this.head = null;
-        this.length = 0;
-    }
-    add(val) {
-        let newNode = new ListNode(val);
-        if (!this.head) {
-            this.head = newNode
-        } else {
-            let cur = this.head;
-            while (cur.next) {
-                cur = cur.next;
-            }
-            cur.next = newNode
-        }
-        this.length++;
-    }
-    get() {
-        let res = []
-        let cur = this.head
-        while (cur) {
-            res.push(cur.val)
-            cur = cur.next
-        }
-        return res
-    }
-}
-
-
-
 const fib = (n, memo = {}) => {
     if (n <= 1) return n;
     if (memo[n]) return memo[n];
@@ -220,16 +180,57 @@ const getSum = num => {
     return num % 10 + getSum(Math.floor(num / 10))
 }
 
+const neste = [23, [3, 3, 32, 2], [[112, 21], 12,], 123]
 
-
-const neste = [23,[3,3,32,2],[[112,21],12,],123]
-
-// reversing nested array
-const reverse = nestedArray  =>{
-    if(!Array.isArray(nestedArray))return nestedArray;
+const reverse = nestedArray => {
+    if (!Array.isArray(nestedArray)) return nestedArray;
     nestedArray = nestedArray.reverse();
-    nestedArray = nestedArray.map(el=>reverse(el));
+    nestedArray = nestedArray.map(el => reverse(el));
     return nestedArray
+};
+
+
+const sumOfNestedArray = arr => {
+    let total = 0;
+    arr.forEach(el => {
+        if (!Array.isArray(el)) {
+            total += el;
+        } else {
+            total += sumOfNestedArray(el);
+        }
+    })
+    return total
 }
 
 
+(function (num = 5) {
+    for (let i = 1; i <= num; i++) {
+        let str = ''
+        for (let j = 1; j <= i; j++) {
+
+        }
+    }
+})()
+
+
+const print = n => {
+    function product(n) {
+        let result = 1;
+        for (let i = 1; i <= n; i++) {
+            result *= i;
+        }
+        return result;
+    }
+    for (let i = 1; i <= n; i++) {
+        let str = '';
+        for (let j = 1; j <= i; j++) {
+            if (j === 1) {
+                str += `${j}`;
+            } else {
+                str += ` * ${j}`;
+            }
+        }
+        str += ` = ${product(i)}`;
+        console.log(str);
+    }
+}

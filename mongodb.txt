@@ -53,8 +53,7 @@ $lookup: {
 $unwind: {
     Deconstructs an array field from the input documents to output a document for each element of the array.
 }
-
-Upsert
+$upsert 
 Updates the documents that match the condition; otherwise, inserts the data if no match is found.
 distinct: {
     Returns the distinct values of a field as an array.
@@ -243,4 +242,3 @@ limiting size of collection{
 }
 
 learn regex patterns, '
-- total salary of employees who aren’t referred ($exists)

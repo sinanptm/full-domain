@@ -46,7 +46,6 @@ Complete Binary Tree:{
     Level 2:    2     3
                / \   /
     Level 3:  4   5 6
-
 }
 Full Binary Tree:{
     Every node has either zero children (leaf nodes) or two children (internal nodes).
@@ -56,7 +55,6 @@ Full Binary Tree:{
     Level 2:    2     3
                / \   / \
     Level 3:  4   5 6   7
-
 }
 Perfect Binary Tree:{
     All levels of the tree are fully filled.
@@ -109,7 +107,7 @@ Memory management and garbage collection{
     Automatic Allocation: Memory is allocated for objects and variables as needed during program execution.
     Garbage Collection: JavaScript engines employ sophisticated garbage collection algorithms (e.g., generational garbage collection) to reclaim memory occupied by objects that are no longer reachable, optimizing memory usage and performance.
 }
-mark and sweep*{
+mark and sweep{
     it is garbage collecting algorithm with two phases marking unused variables and sweeping it 
 }
 graph{
@@ -200,7 +198,7 @@ Heap {
 Trie {
     each node represents a word
     the root is typically empty. and each path down the tree represents a word or prefix.
-    a code can have multiple children each corresponding to deferent character.
+    a node can have multiple children each corresponding to deferent character.
     Insert: O(M), where M is the length of the word.
     Search: O(M).
     Delete: O(M).
@@ -245,7 +243,6 @@ Dynamic Memory Allocation{
     Advantages: Flexible, efficient use of memory, better scope management.
     Disadvantages: Performance overhead, fragmentation, error-prone, unpredictable availability.
 }
-
 extract digits from string{
     - console.log(str.match(/\d+/g).join(''));
     - for (const char of str) {
@@ -258,17 +255,5 @@ array shuffling {
     for (let i = 0; i < arr.length; i++) {
         const random = Math.floor(Math.random() * (i + 1));
         [arr[random], arr[i]] = [arr[i], arr[random]];
-    }
-}
-
-
-delete(root,val){
-    if(!root)return null;
-    if(val<root.val)root.left = delete(root.left,val)
-    else if(val>root.right)root.right = delete(root.right,val);
-    else{
-        if(!root.left)return root.right;
-        else if(!root.right)return root.left;
-        root.val = 
     }
 }

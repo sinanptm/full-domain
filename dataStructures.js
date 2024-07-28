@@ -102,16 +102,88 @@ class BinaryTree {
         }
         return root;
     }
+
+    isBalanced(root = this.root) {
+        const checkHeight = (node) => {
+            if (!node) return 0;
+            let leftHeight = checkHeight(node.left);
+            if (leftHeight === -1) return -1;
+            let rightHeight = checkHeight(node.right);
+            if (rightHeight === -1) return -1;
+            if (Math.abs(leftHeight - rightHeight) > 1) return -1;
+            return Math.max(leftHeight, rightHeight) + 1;
+        };
+
+        return checkHeight(root) !== -1;
+    }
+
+    levelOrder() {
+        if (!this.root) return [];
+        const queue = [this.root];
+        const result = [];
+        while (queue.length) {
+            const node = queue.shift();
+            result.push(node.val);
+
+            if (node.left) queue.push(node.left);
+            if (node.right) queue.push(node.right);
+        }
+        return result;
+    }
 }
 
-
+// Example usage
 const bst = new BinaryTree();
-bst.insert(1)
-bst.insert(2)
-bst.insert(3)
-bst.insert(2563)
-bst.insert(2663)
-bst.insert(2522)
-bst.insert(13)
-bst.insert(2323)
+bst.insert(1);
+bst.insert(2);
+bst.insert(3);
+bst.insert(2563);
+bst.insert(2663);
+bst.insert(2522);
+bst.insert(13);
+bst.insert(2323);
+
 console.log(bst.inOrder());
+console.log(bst.isBalanced() ? 'Tree is balanced' : 'Tree is not balanced');
+
+
+
+
+
+
+
+class ListNode {
+    constructor(val, next) {
+        this.val = val ?? null;
+        this.next = next ?? null;
+    }
+}
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.length = 0;
+    }
+    add(val) {
+        let newNode = new ListNode(val);
+        if (!this.head) {
+            this.head = newNode
+        } else {
+            let cur = this.head;
+            while (cur.next) {
+                cur = cur.next;
+            }
+            cur.next = newNode
+        }
+        this.length++;
+    }
+    get() {
+        let res = []
+        let cur = this.head
+        while (cur) {
+            res.push(cur.val)
+            cur = cur.next
+        }
+        return res
+    }
+}

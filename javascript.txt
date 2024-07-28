@@ -345,9 +345,6 @@ RegExp{ // used to match patterns and all
     const regex = /pattern/flags;
     const regex = new RegExp('pattern', 'flags');
 }
-
-
-
 custom errors {
     class DatabaseError extends Error {
     constructor(message, code) {
@@ -421,8 +418,10 @@ reversing nested array{
         return nestedArray
     }
 }
-
 Proxy object : A powerful feature for intercepting and redefining operations on objects or functions.
+
+
+
 
 
 
