@@ -1,17 +1,3 @@
-
-var randomObjArray = [
-    { a: [1, 2, 5 ], b: 12 },
-    { ba: [1, 2, 5 ], ss: 12 },
-    { aw: [1, 2, 5 ], qw: 12 }
-];
-var nestedArray = [23, [3, 3, 32, 2], [[112, 21], 12,], 123]
-var arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
-var objArray = [
-    { a: [1, 2, 5 ], b: 12 },
-    { a: [1, 2, 5 ], b: 12 },
-    { a: [1, 2, 5 ], b: 12 }
-];
-
 // ! reverse stack using recursion 
 const insertAtBottom = (stack, element) => {
     if (stack.length === 0) {
@@ -161,6 +147,24 @@ function merge(left, right) {
     return [...res, ...left, ...right]
 }
 
+// ______________________________________________________________
+
+
+var arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
+var nestedArray = [23, [3, 3, 32, 2], [[112, 21], 12,], 123]
+var randomObjArray = [
+    { a: [1, 2, 5 ], b: 12 },
+    { ba: [1, 2, 5 ], ss: 12 },
+    { aw: [1, 2, 5 ], qw: 12 }
+];
+var objArray = [
+    { a: [1, 2, 5 ], b: 12 },
+    { a: [1, 2, 5 ], b: 12 },
+    { a: [1, 2, 5 ], b: 12 }
+];
+
+
+// DP fibonacci
 const fib = (n, memo = {}) => {
     if (n <= 1) return n;
     if (memo[n]) return memo[n];
@@ -168,6 +172,7 @@ const fib = (n, memo = {}) => {
     return memo[n];
 }
 
+// merging tow objects without dup
 const mergeObjects = (obj1, obj2) => {
     for (const key in obj2) {
         if (!(key in obj1)) {
@@ -177,6 +182,7 @@ const mergeObjects = (obj1, obj2) => {
     return obj1
 }
 
+// shuffling an array
 const shuffle = arr => {
     for (let i = 0; i < arr.length; i++) {
         const random = Math.floor(Math.random() * (i + 1));
@@ -186,7 +192,7 @@ const shuffle = arr => {
 }
 
 
-
+// sum of each integer in a number // 232  = (2+3+2 = 7)
 const getSum = num => {
     num = Math.abs(num)
     if (num === 0) return num
@@ -194,6 +200,7 @@ const getSum = num => {
 };
 
 
+// for reversing an nested array
 const reverseNestedArray = nestedArray => {
     if (!Array.isArray(nestedArray)) return nestedArray;
     nestedArray = nestedArray.reverse();
@@ -202,6 +209,7 @@ const reverseNestedArray = nestedArray => {
 };
 
 
+// sum of numbers in a nested array 
 const sumOfNestedArray = arr => {
     let total = 0;
     arr.forEach(el => {
@@ -214,6 +222,7 @@ const sumOfNestedArray = arr => {
     return total
 }
 
+// multiplication pattern
 const print = n => {
     function product(n) {
         let result = 1;
@@ -237,7 +246,7 @@ const print = n => {
 }
 
 
-
+// sum of objects values in a array with specified field
 const sumOfObjArray = arr => {
     let sum = 0;
     arr.forEach(el => {
@@ -247,8 +256,7 @@ const sumOfObjArray = arr => {
     return sum;
 };
 
-
-
+// sum of objects values in a array with random field
 const sumOfRandomObjArray = arr=>{
     let sum = 0;
     arr.forEach(el=>{

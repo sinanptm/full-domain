@@ -240,5 +240,47 @@ limiting size of collection{
     })
 
 }
-
-learn regex patterns, '
+$facet{
+    db.products.aggregate( [
+      {
+        $facet: {
+          "categorizedByColor": [
+            { $match: { color: { $exists: 1 } } },
+            {
+              $bucket: {
+                groupBy: "$color",
+                default: "Other",
+                output: {
+                  "count": { $sum: 1 }
+                }
+              }
+            }
+          ],
+          "categorizedBySize": [
+            { $match: { size: { $exists: 1 } } },
+            {
+              $bucket: {
+                groupBy: "$size",
+                default: "Other",
+                output: {
+                  "count": { $sum: 1 }
+                }
+              }
+            }
+          ],
+          "categorizedByBrand": [
+            { $match: { brand: { $exists: 1 } } },
+            {
+              $bucket: {
+                groupBy: "$brand",
+                default: "Other",
+                output: {
+                  "count": { $sum: 1 }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ])
+}
