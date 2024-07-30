@@ -1,22 +1,3 @@
-// ! reverse stack using recursion 
-const insertAtBottom = (stack, element) => {
-    if (stack.length === 0) {
-        stack.push(element);
-    } else {
-        let temp = stack.pop();
-        insertAtBottom(stack, element);
-        stack.push(temp);
-    }
-};
-const reverseStack = (stack) => {
-    if (stack.length > 0) {
-        let temp = stack.pop();
-        reverseStack(stack);
-        insertAtBottom(stack, temp);
-    }
-};
-
-
 // ______________________________________________________________
 
 const leanear = (arr, target) => {
@@ -48,7 +29,7 @@ const reqersieveBinarySearch = (arr, target, left = 0, right = arr.length - 1) =
     const middle = Math.floor((left + right) / 2);
     if (arr[middle] === target) return middle;
     if (target > arr[middle]) return reqersieveBinarySearch(arr, target, middle + 1, right)
-        else return reqersieveBinarySearch(arr, target, left, middle - 1)
+    else return reqersieveBinarySearch(arr, target, left, middle - 1)
 }
 
 // ______________________________________________________________
@@ -82,9 +63,9 @@ const selectionSort = arr => {
             }
         }
         [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
-        
+
     }
-    
+
     return console.log('Selction Sort', arr);
 }
 // ______________________________________________________________
@@ -104,11 +85,11 @@ const quickSort = (arr) => {
     if (arr.length <= 1) {
         return arr;
     }
-    
+
     let pivot = arr[0];
     let leftArr = [];
     let rightArr = [];
-    
+
     for (let i = 1; i < arr.length; i++) {
         if (arr[i] < pivot) {
             leftArr.push(arr[i]);
@@ -116,7 +97,7 @@ const quickSort = (arr) => {
             rightArr.push(arr[i]);
         }
     }
-    
+
     return [...quickSort(leftArr), pivot, ...quickSort(rightArr)];
 };
 
@@ -127,7 +108,7 @@ const mergeSort = arr => {
     if (arr.length <= 1) {
         return arr;
     }
-    
+
     const middle = Math.floor(arr.length / 2);
     const left = arr.slice(0, middle);
     const right = arr.slice(middle);
@@ -153,16 +134,33 @@ function merge(left, right) {
 var arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
 var nestedArray = [23, [3, 3, 32, 2], [[112, 21], 12,], 123]
 var randomObjArray = [
-    { a: [1, 2, 5 ], b: 12 },
-    { ba: [1, 2, 5 ], ss: 12 },
-    { aw: [1, 2, 5 ], qw: 12 }
+    { a: [1, 2, 5], b: 12 },
+    { ba: [1, 2, 5], ss: 12 },
+    { aw: [1, 2, 5], qw: 12 }
 ];
 var objArray = [
-    { a: [1, 2, 5 ], b: 12 },
-    { a: [1, 2, 5 ], b: 12 },
-    { a: [1, 2, 5 ], b: 12 }
+    { a: [1, 2, 5], b: 12 },
+    { a: [1, 2, 5], b: 12 },
+    { a: [1, 2, 5], b: 12 }
 ];
 
+// reverse stack 
+const insertAtBottom = (stack, element) => {
+    if (stack.length === 0) {
+        stack.push(element);
+    } else {
+        let temp = stack.pop();
+        insertAtBottom(stack, element);
+        stack.push(temp);
+    }
+};
+const reverseStack = (stack) => {
+    if (stack.length > 0) {
+        let temp = stack.pop();
+        reverseStack(stack);
+        insertAtBottom(stack, temp);
+    }
+};
 
 // DP fibonacci
 const fib = (n, memo = {}) => {
@@ -194,7 +192,7 @@ const shuffle = arr => {
 
 // sum of each integer in a number // 232  = (2+3+2 = 7)
 const getSum = num => {
-    num = Math.abs(num)
+    num = Math.abs(num);
     if (num === 0) return num
     return num % 10 + getSum(Math.floor(num / 10))
 };
@@ -245,28 +243,27 @@ const print = n => {
     }
 }
 
-
-// sum of objects values in a array with specified field
-const sumOfObjArray = arr => {
+// sum of objects values in a array with random field
+const sumOfRandomObjArray = arr => {
     let sum = 0;
     arr.forEach(el => {
-        sum += el.a.reduce((acc, cur) => acc + cur);
-        sum += el.b
-    })
-    return sum;
-};
-
-// sum of objects values in a array with random field
-const sumOfRandomObjArray = arr=>{
-    let sum = 0;
-    arr.forEach(el=>{
-        Object.values(el).forEach(val=>{
-            if(Array.isArray(val)){
-                sum+=val.reduce((total,cur)=>total+cur)
-            }else{
-                sum+=val
+        Object.values(el).forEach(val => {
+            if (Array.isArray(val)) {
+                sum += val.reduce((total, cur) => total + cur)
+            } else if (typeof val === 'number') {
+                sum += val
             }
         });
     })
     return sum;
+}
+
+// two pointers palindrome 
+const isPali = str => {
+    for (let i = 0, j = str.length - 1; i <= j; i++, j--) {
+        if (str[i] !== str[j]) {
+            return console.log(false);
+        }
+    }
+    console.log(true);
 }
