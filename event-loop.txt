@@ -1,5 +1,5 @@
 - overview of how event loop, worker thread, child process and cluster module work together in a Node.js application.
-- **single-threaded app is actually leveraging the multi-threaded behavior of another process: the database**
+- single-threaded app is actually leveraging the multi-threaded behavior of another process: the database
 ref : https://stackoverflow.com/a/34857298/25472984
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
@@ -16,9 +16,9 @@ Cluster Module: To handle a high number of requests, you can use the cluster mod
 distributing the load and improving performance. The cluster module helps you utilize the full power of a multi-core system.
 
 Difference between Worker Thread, Cluster, and Child Process{
-    Worker Threads are threads within a single Node.js process, suitable for CPU-bound tasks within a single machine.
-    Clusters are multiple instances of the entire Node.js process running separately, suitable for distributing workload across multiple cores or machines.
-    Child Processes, as discussed earlier, are independent processes spawned by a Node.js process, useful for executing external commands or running other applications.
+  Worker Threads are threads within a single Node.js process, suitable for CPU-bound tasks within a single machine.
+  Clusters are multiple instances of the entire Node.js process running separately, suitable for distributing workload across multiple cores or machines.
+  Child Processes, as discussed earlier, are independent processes spawned by a Node.js process, useful for executing external commands or running other applications.
 }
 
 Here's a simplified example to demonstrate these concepts:

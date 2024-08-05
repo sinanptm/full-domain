@@ -21,16 +21,6 @@ useCallback{
         setCount(count + 1);
     }, [count]);
 }
-Hooks rules and conditional rendering{
-🔴 Only call Hooks at the top level
-🔴 Only call Hooks from React functions
-🔴 Do not call Hooks inside conditions or loops.
-🔴 Do not call Hooks after a conditional return statement.
-🔴 Do not call Hooks in event handlers.
-🔴 Do not call Hooks in class components.
-🔴 Do not call Hooks inside functions passed to useMemo, useReducer, or useEffect.
-🔴 Do not call Hooks inside try/catch/finally blocks.
-}
 Context API vs Redux{
     context api It's a good choice for small to medium-sized applications that don't require complex state management.
     redux  better choice for large and complex applications that require more advanced state management features. Redux can make it easier to debug and reason about your application's state
@@ -51,7 +41,7 @@ Higher-order components (HOCs){
     hocs allow you to reuse component logic across multiple components. 
 }
 Suspense for data fetching{
-     Wraps a component that is waiting for some asynchronous operation. Displays a fallback UI until the operation completes.
+    Wraps a component that is waiting for some asynchronous operation. Displays a fallback UI until the operation completes.
 }
 Performance optimization{
     Lazy loading 
@@ -74,8 +64,7 @@ Error handling in React{
             <App />
         </ErrorBoundary>,
         document.getElementById('root')
-    );
-    
+    );   
 }
 Redux Thunk vs Redux Saga{
     Redux Thunk and Redux Saga are both middleware libraries that help manage side effects and asynchronous operations in Redux applications. The main difference between the two is how they handle side effect s:
@@ -92,7 +81,6 @@ types of routers{
     BrowserRouterUtilizes the HTML5 history API for navigation, keeping the UI in sync with the URL without refreshing the page
     HashRouterUses the hash portion of a URL window.location.hash to sync the UI with the URL. Useful for older browsers that do not support the HTML5 history API.
 }
-
 Portals in React allow rendering children into a DOM node outside the parent component's DOM hierarchy.
 Switch{
     Switch component in React Router renders the first matching route.

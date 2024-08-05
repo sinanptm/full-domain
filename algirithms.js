@@ -8,8 +8,6 @@ const leanear = (arr, target) => {
 }
 // ______________________________________________________________
 
-
-
 const binarySearch = (arr, target) => {
     let left = 0;
     let right = arr.length - 1;
@@ -33,8 +31,6 @@ const reqersieveBinarySearch = (arr, target, left = 0, right = arr.length - 1) =
 }
 
 // ______________________________________________________________
-
-// ! sortingAlgorithms
 
 const bubble = arr => {
     let n = arr.length
@@ -130,6 +126,35 @@ function merge(left, right) {
 
 // ______________________________________________________________
 
+const heapify = (arr, n, i) => {
+    let largest = i;
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+    if (left < n && arr[left] > arr[largest]) {
+        largest = left;
+    }
+    if (right < n && arr[right] > arr[largest]) {
+        largest = right;
+    }
+    if (largest !== i) {
+        [arr[i], arr[largest]] = [arr[largest], arr[i]];
+        heapify(arr, n, largest);
+    }
+}
+
+const heapSort = (arr) => {
+    const n = arr.length;
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+        heapify(arr, n, i);
+    }
+    for (let i = n - 1; i > 0; i--) {
+        [arr[0], arr[i]] = [arr[i], arr[0]];
+        heapify(arr, i, 0);
+    }
+    return arr;
+}
+
+// ______________________________________________________________
 
 var arr = [15, 16, 8, 75, 2, 20, 11.12, 1222, 13, 147, 18, 193, 4, 5, 6, 7, 1];
 var nestedArray = [23, [3, 3, 32, 2], [[112, 21], 12,], 123]
@@ -144,7 +169,7 @@ var objArray = [
     { a: [1, 2, 5], b: 12 }
 ];
 
-// reverse stack 
+// * reverse stack 
 const insertAtBottom = (stack, element) => {
     if (stack.length === 0) {
         stack.push(element);
@@ -162,7 +187,7 @@ const reverseStack = (stack) => {
     }
 };
 
-// DP fibonacci
+// * DP fibonacci
 const fib = (n, memo = {}) => {
     if (n <= 1) return n;
     if (memo[n]) return memo[n];
@@ -170,7 +195,7 @@ const fib = (n, memo = {}) => {
     return memo[n];
 }
 
-// merging tow objects without dup
+// * merging tow objects without dup
 const mergeObjects = (obj1, obj2) => {
     for (const key in obj2) {
         if (!(key in obj1)) {
@@ -180,7 +205,7 @@ const mergeObjects = (obj1, obj2) => {
     return obj1
 }
 
-// shuffling an array
+// * shuffling an array
 const shuffle = arr => {
     for (let i = 0; i < arr.length; i++) {
         const random = Math.floor(Math.random() * (i + 1));
@@ -189,16 +214,14 @@ const shuffle = arr => {
     return arr;
 }
 
-
-// sum of each integer in a number // 232  = (2+3+2 = 7)
+// * sum of each integer in a number // 232  = (2+3+2 = 7)
 const getSum = num => {
     num = Math.abs(num);
     if (num === 0) return num
     return num % 10 + getSum(Math.floor(num / 10))
 };
 
-
-// for reversing an nested array
+// * for reversing an nested array
 const reverseNestedArray = nestedArray => {
     if (!Array.isArray(nestedArray)) return nestedArray;
     nestedArray = nestedArray.reverse();
@@ -206,8 +229,7 @@ const reverseNestedArray = nestedArray => {
     return nestedArray
 };
 
-
-// sum of numbers in a nested array 
+// * sum of numbers in a nested array 
 const sumOfNestedArray = arr => {
     let total = 0;
     arr.forEach(el => {
@@ -220,30 +242,7 @@ const sumOfNestedArray = arr => {
     return total
 }
 
-// multiplication pattern
-const print = n => {
-    function product(n) {
-        let result = 1;
-        for (let i = 1; i <= n; i++) {
-            result *= i;
-        }
-        return result;
-    }
-    for (let i = 1; i <= n; i++) {
-        let str = '';
-        for (let j = 1; j <= i; j++) {
-            if (j === 1) {
-                str += `${j}`;
-            } else {
-                str += ` * ${j}`;
-            }
-        }
-        str += ` = ${product(i)}`;
-        console.log(str);
-    }
-}
-
-// sum of objects values in a array with random field
+// * sum of objects values in a array with random field
 const sumOfRandomObjArray = arr => {
     let sum = 0;
     arr.forEach(el => {
@@ -258,7 +257,7 @@ const sumOfRandomObjArray = arr => {
     return sum;
 }
 
-// two pointers palindrome 
+// * two pointers palindrome 
 const isPali = str => {
     for (let i = 0, j = str.length - 1; i <= j; i++, j--) {
         if (str[i] !== str[j]) {
@@ -266,4 +265,11 @@ const isPali = str => {
         }
     }
     console.log(true);
+}
+
+// * Multiplication table
+const multiplication = (num,power=1)=>{
+   if(power>10)return;
+    console.log(`${num} x ${power} = ${power*num}`);
+    return multiplication(num,++power)
 }

@@ -16,6 +16,11 @@ Local storage vs Session storage{
          it's similar to a session variable on any backend language.
     }
 }
+Session and cookies{
+    those are mechanisms to store information about user's interactions with a web application;
+    Cookies: Small data storage on the client side, used for persisting information across browser sessions. Useful for non-sensitive data and settings.
+    Sessions: Server-side storage with a session ID on the client side. Better suited for sensitive data and user-specific information that should not be exposed to the client.
+}
 BOM (Browser Object Model):{
     The Browser Object Model (BOM) is a collection of objects provided by the browser to interact with the web page and its environment. 
      The BOM allows you to control the browser window, navigate to different URLs, retrieve information about the browser, etc.
@@ -26,11 +31,6 @@ Regex{
     console.log(pattern.test(str)); // true
     const replacedStr = str.replace(pattern, "hi");
     const caseInsensitivePattern = /hello/i;
-}
-Session and cookies{
-    those are mechanisms to store information about user's interactions with a web application;
-    Cookies: Small data storage on the client side, used for persisting information across browser sessions. Useful for non-sensitive data and settings.
-    Sessions: Server-side storage with a session ID on the client side. Better suited for sensitive data and user-specific information that should not be exposed to the client.
 }
 Load balancing{
     load balancing is technique used to distribute incoming network traffic across multiple servers to ensure no single server becomes overwhelmed.
