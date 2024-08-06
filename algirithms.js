@@ -259,7 +259,7 @@ const isPali = str => {
 }
 
 // * Multiplication table
-const multiplication = (num=5, power = 1) => {
+const multiplication = (num = 5, power = 1) => {
     if (power > 10) return;
     console.log(`${num} x ${power} = ${power * num}`);
     return multiplication(num, ++power)
