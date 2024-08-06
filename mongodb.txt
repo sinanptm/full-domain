@@ -58,7 +58,7 @@ Updates the documents that match the condition; otherwise, inserts the data if n
 distinct: {
     Returns the distinct values of a field as an array.
 }
-Backup: Creates a backup of the database.
+mongodump: Creates a backup of the database.
 mongodump --out /path/to/backup
 
 Restore: Restores the database from a backup.
@@ -152,23 +152,6 @@ evaluation_operators: {
         scores: { $elemMatch: { $gt: 80, $lt: 85 } }
     });
 }
--$facet {
-    The $facet stage allows you to perform multiple aggregation pipelines within a single stage, returning a document where each field contains the results of a separate pipeline.
-    db.collection.aggregate([
-        {
-            $facet: {
-                "categorizedByTags": [
-                    { $unwind: "$tags" },
-                    { $sortByCount: "$tags" }
-                ],
-                "categorizedByYear": [
-                    { $match: { year: { $gt: 2000 } } },
-                    { $bucket: { groupBy: "$year", boundaries: [2000, 2010, 2020], default: "Other" } }
-                ]
-            }
-        }
-    ]);
-}
 -$let {
     The $let operator defines variables for use within the scope of a sub-expression and returns the result of the sub-expression.
     db.collection.aggregate([
@@ -238,49 +221,49 @@ limiting size of collection{
       size: 5242880,  // Size limit in bytes (e.g., 5MB)
       max: 5000       // Maximum number of documents (optional)
     })
-
 }
-$facet{
+-$facet {
+    The $facet stage allows you to perform multiple aggregation pipelines within a single stage, returning a document where each field contains the results of a separate pipeline.
     db.products.aggregate( [
-      {
-        $facet: {
-          "categorizedByColor": [
-            { $match: { color: { $exists: 1 } } },
-            {
-              $bucket: {
-                groupBy: "$color",
-                default: "Other",
-                output: {
-                  "count": { $sum: 1 }
-                }
-              }
-            }
-          ],
-          "categorizedBySize": [
-            { $match: { size: { $exists: 1 } } },
-            {
-              $bucket: {
-                groupBy: "$size",
-                default: "Other",
-                output: {
-                  "count": { $sum: 1 }
-                }
-              }
-            }
-          ],
-          "categorizedByBrand": [
-            { $match: { brand: { $exists: 1 } } },
-            {
-              $bucket: {
-                groupBy: "$brand",
-                default: "Other",
-                output: {
-                  "count": { $sum: 1 }
-                }
-              }
-            }
-          ]
-        }
-      }
-    ])
+       {
+         $facet: {
+           "categorizedByColor": [
+             { $match: { color: { $exists: 1 } } },
+             {
+               $bucket: {
+                 groupBy: "$color",
+                 default: "Other",
+                 output: {
+                   "count": { $sum: 1 }
+                 }
+               }
+             }
+           ],
+           "categorizedBySize": [
+             { $match: { size: { $exists: 1 } } },
+             {
+               $bucket: {
+                 groupBy: "$size",
+                 default: "Other",
+                 output: {
+                   "count": { $sum: 1 }
+                 }
+               }
+             }
+           ],
+           "categorizedByBrand": [
+             { $match: { brand: { $exists: 1 } } },
+             {
+               $bucket: {
+                 groupBy: "$brand",
+                 default: "Other",
+                 output: {
+                   "count": { $sum: 1 }
+                 }
+               }
+             }
+           ]
+         }
+       }
+     ])
 }

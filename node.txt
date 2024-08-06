@@ -39,7 +39,7 @@ setImmediate vs process.nextTick() {
     setImmediate executing in the next iteration of the event loop after I/O events. 
 }
 Child process (spawn and fork and exec){
-    allows multiple processes to run simultaneously.
+    al  lows multiple processes to run simultaneously.
     This can be useful for tasks that are CPU-intensive, such as image processing or video encoding.
     spawn 
         use when need to execute a scripts, shell commands or launching application in a new process

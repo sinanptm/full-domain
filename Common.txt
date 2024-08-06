@@ -5,6 +5,11 @@ Authentication vs Authorization{
     Authorization is the process of determining what an authenticated user is allowed to do. It's about granting or denying permissions to resources or actions.
     Authorization can only occur after authentication.
 }
+Session and cookies{
+    those are mechanisms to store information about user's interactions with a web application;
+    Cookies: Small data storage on the client side, used for persisting information across browser sessions. Useful for non-sensitive data and settings.
+    Sessions: Server-side storage with a session ID on the client side. Better suited for sensitive data and user-specific information that should not be exposed to the client.
+}
 Local storage vs Session storage{
     Local storage and session storage are both part of the Web Storage API
     Local Storage{
@@ -15,11 +20,6 @@ Local storage vs Session storage{
         sessionStorage is only for that browser tab's session. If you close the tab, the session will be lost and the data will be lost too,
          it's similar to a session variable on any backend language.
     }
-}
-Session and cookies{
-    those are mechanisms to store information about user's interactions with a web application;
-    Cookies: Small data storage on the client side, used for persisting information across browser sessions. Useful for non-sensitive data and settings.
-    Sessions: Server-side storage with a session ID on the client side. Better suited for sensitive data and user-specific information that should not be exposed to the client.
 }
 BOM (Browser Object Model):{
     The Browser Object Model (BOM) is a collection of objects provided by the browser to interact with the web page and its environment. 

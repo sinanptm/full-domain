@@ -94,9 +94,10 @@ Time complexity and Big O notation{
     Time Complexity is a measure used to describe the efficiency of an algorithm in terms of the amount of time it takes to complete as a function of the input size. It helps in understanding how an algorithm's run time increases as the size of the input increases.
     Big O Notation is a mathematical notation used to describe the upper bound of an algorithm's time complexity. It characterizes functions according to their growth rates and is used to provide an asymptotic analysis of an algorithm.
     O(1)
-    O(n^2)
-    O(n log n)
+    O(n)
     O(log n)
+    O(n log n)
+    O(n^2)
 }
 Dynamic programming{
     DP is effective when the problem can be broken down into smaller, overlapping sub-problems.
